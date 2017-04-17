@@ -1,0 +1,2037 @@
+What is listed:
+1) pDaq Run Number 
+2) Date when run was acquired (typically run start) 
+3) Run length in hours 
+4) Subdetector Status 
+  Arranged in the following order InIce/IceTop 
+  '-' no information 
+  'x' significant problem in the subdetector, short, or very few events 
+  'IT' subdetector active - I=IceCube, T=IceTop 
+  Note: 'IT' is just the subdetector status (active) and not a decision if it was indeed good 
+5) IC79 InIce status 
+   - full    (86 strings are operational) 
+   - partial (one or more strings are missing) 
+6) Good Run Decision and comment 
+   The good run decision is made for IceCube InIce. The reason for labeling the run as bad ('FAULTY') is given in the comment. The comment also includes a list of missing string for partial runs if that information was available from the DB (DroppedDOMs Lists). 
+
+========================== 
+Further details on sub-detector status (3): 
+IceCube InIce 
+============= 
+'-' no information (no monitoring) 
+'x' less than 10min, less than 6000 events, or significant problem in the InIce detector 
+IceTop 
+====== 
+'-' no information (no monitoring) 
+'x' less than 30min, less than 1000 events, significant problem in the IceTop detector 
+
+Version March 16th, 2012 (v1.1) 
+============================== 
+Very preliminary first version. Still created with the old framework. New python framwork should be ready shortly. 
+Documenting of monitored runs needs to be checked. Many runs marked good but verify monitoring.
+
+Version April 30th, 2012 (v1.1a) 
+==============================
+adding two bad runs from L2 processing (119194,119398). These are rather short runs that were manually re-filtered after initial PnF problems, now DST headers are missing. Runs could potentially recovered if there is a strong need for it (for example interesting transient event). 
+
+Version Sepember 6, 2012 (v1.2)
+==============================
+Included information on whether a run has a high number of zombies, the rate of the run, the number of missing strings, and which strings are missing.
+Statistics summary includes the number and duration of the following run types: 
+Light runs, short runs, test runs, Bad I3 runs, bad IT runs, high zombie runs, low rate runs
+
+Version October 30, 2012 (v1.3)
+===============================
+Declare all failed runs as faulty
+
+Version December 19, 2012 (v1.3a)
+=================================
+Adding one missing run (118954) for completeness. It is a short testrun which does not appear in I3Live, however it produced some data.
+
+Version May 7, 2013 (v1.4a)
+===========================
+Marking IC86-II runs (120028 - 120030, 120156, 120157)
+adding a few failed runs and declaring runs as good that failed due to 2ndbuilder unresponsive. Comment from Dave Glowacki: runs which end with the secondary builder dying produce valid events because the event builder is unaffected by the problems on 2ndbuild.  The TCal, Moni, and Supernova data from the run is definitely suspect, but the physics events themselves should be unaffected.
+
+SUMMARY STATISTICS for runs 118178 through 120157
+Creation date:    2012-10-29 19:26
+Period covered:   2011-05-14 00:00:00 2012-05-16 00:00:00
+Number of Runs:   1964
+Total livetime (days):  365.39
+Good livetime (days):   343.53
+Bad livetime (days):  21.86
+Fractional livetime:  0.940
+Number/duration (h) of light runs:  112 /   52.67   
+Number/duration (h) of short runs:  581 /   15.03   
+Number/duration (h) of test runs:   125 /   166.02  
+Number/duration (h) of 'bad' I3 runs:   44 /  80.6  
+Number/duration (h) of 'bad' IT runs:   34 /  30.71   
+Number/duration (h) of zombie runs:   107 /   137.46  
+Number/duration (h) of lowrate runs:  569 /   48.53   
+Number/duration (h) of failed runs:   132 /   256.73  
+
+
+118178  2011-05-13  ( 8.02 )  IT  full    GOOD    
+118179  2011-05-14  ( 8.06 )  IT  full    GOOD    
+118180  2011-05-14  ( 8.02 )  IT  full    GOOD    
+118181  2011-05-14  ( 8.05 )  IT  full    GOOD    
+118182  2011-05-15  ( 2.39 )  IT  full    GOOD    
+118183  2011-05-15  ( 0.73 )  IT  full    FAULTY  light, low rate, failed, 
+118184  2011-05-15  ( 0.65 )  IT  full    FAULTY  light, low rate, 
+118185  2011-05-15  ( 4.87 )  IT  full    FAULTY  failed, 
+118186  2011-05-15  ( 8.02 )  IT  full    GOOD    
+118187  2011-05-16  ( 8.02 )  IT  full    GOOD    
+118188  2011-05-16  ( 8.05 )  IT  full    GOOD    
+118189  2011-05-16  ( 0.85 )  IT  full    GOOD    
+118190  2011-05-16  ( 8.02 )  IT  full    GOOD    
+118191  2011-05-17  ( 8.02 )  IT  full    GOOD    
+118192  2011-05-17  ( 0.76 )  IT  full    GOOD    
+118193  2011-05-17  ( 8.03 )  IT  full    GOOD    
+118194  2011-05-17  ( 8.02 )  IT  full    GOOD    
+118195  2011-05-18  ( 0.70 )  IT  full    FAULTY  failed, 
+118196  2011-05-18  ( 2.12 )  IT  full    FAULTY  failed, 
+118197  2011-05-18  ( 8.02 )  IT  full    GOOD    
+118198  2011-05-18  ( 8.03 )  IT  full    GOOD    
+118199  2011-05-18  ( 0.16 )  xx  full    FAULTY  short, 
+118200  2011-05-18  ( 4.26 )  IT  full    GOOD 
+118201  2011-05-19  ( 8.02 )  IT  full    GOOD    
+118202  2011-05-19  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+118203  2011-05-19  ( 6.86 )  IT  full    FAULTY  failed, 
+118204  2011-05-19  ( 8.02 )  IT  full    GOOD    
+118205  2011-05-20  ( 8.06 )  IT  full    GOOD    
+118206  2011-05-20  ( 6.10 )  IT  full    GOOD    
+118207  2011-05-20  ( 8.02 )  IT  full    GOOD    
+118208  2011-05-20  ( 5.91 )  IT  full    GOOD
+118209  2011-05-21  ( 8.00 )  IT  full    GOOD    
+118210  2011-05-21  ( 8.00 )  IT  full    GOOD    
+118211  2011-05-21  ( 8.00 )  IT  full    GOOD    
+118212  2011-05-22  ( 4.82 )  IT  full    GOOD    
+118213  2011-05-22  ( 0.14 )  xx  full    FAULTY  short, 
+118214  2011-05-22  ( 8.02 )  IT  full    GOOD    
+118215  2011-05-22  ( 8.02 )  IT  full    GOOD    
+118216  2011-05-23  ( 4.18 )  IT  full    GOOD 
+118217  2011-05-23  ( 1.67 )  IT  full    GOOD 
+118218  2011-05-23  ( 8.03 )  IT  full    GOOD    
+118219  2011-05-23  ( 8.05 )  IT  full    GOOD    
+118220  2011-05-24  ( 8.02 )  IT  full    GOOD    
+118221  2011-05-24  ( 8.05 )  IT  full    GOOD    
+118222  2011-05-24  ( 8.02 )  IT  full    GOOD    
+118223  2011-05-25  ( 6.47 )  IT  full    GOOD    
+118224  2011-05-25  ( 0.29 )  Ix  full    FAULTY  test, 
+118225  2011-05-25  ( 8.05 )  IT  full    FAULTY  test, 
+118226  2011-05-25  ( 8.02 )  IT  full    GOOD    
+118227  2011-05-25  ( 8.02 )  IT  full    GOOD    
+118228  2011-05-26  ( 8.02 )  IT  full    GOOD    
+118229  2011-05-26  ( 8.05 )  IT  full    GOOD    
+118230  2011-05-27  ( 8.02 )  IT  full    GOOD    
+118231  2011-05-27  ( 8.02 )  IT  full    GOOD    
+118232  2011-05-27  ( 8.03 )  IT  full    GOOD    
+118233  2011-05-28  ( 8.05 )  IT  full    GOOD    
+118234  2011-05-28  ( 7.99 )  IT  full    GOOD 
+118235  2011-05-28  ( 8.00 )  IT  full    GOOD    
+118236  2011-05-29  ( 8.00 )  IT  full    GOOD    
+118237  2011-05-29  ( 8.00 )  IT  full    GOOD    
+118238  2011-05-29  ( 2.89 )  IT  full    GOOD    
+118239  2011-05-29  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+118240  2011-05-29  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+118241  2011-05-29  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+118242  2011-05-29  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+118243  2011-05-29  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+118244  2011-05-29  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+118245  2011-05-29  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+118246  2011-05-29  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+118247  2011-05-29  ( 1.07 )  IT  partial GOOD    
+118248  2011-05-29  ( 1.42 )  IT  partial GOOD    
+118249  2011-05-29  ( 8.02 )  IT  full    GOOD    
+118250  2011-05-30  ( 0.07 )  xx  full    FAULTY  short, zombies, low rate, failed, 
+118251  2011-05-30  ( 8.02 )  IT  full    GOOD    
+118252  2011-05-30  ( 8.02 )  IT  full    GOOD    
+118253  2011-05-30  ( 6.60 )  IT  full    GOOD 
+118254  2011-05-31  ( 8.06 )  IT  full    GOOD    
+118255  2011-05-31  ( 5.83 )  IT  full    FAULTY  failed, 
+118256  2011-05-31  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118257  2011-05-31  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118258  2011-05-31  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118259  2011-05-31  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118260  2011-05-31  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+118261  2011-05-31  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118262  2011-05-31  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118263  2011-05-31  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118264  2011-05-31  ( 1.56 )  IT  partial GOOD 
+118265  2011-05-31  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+118266  2011-05-31  ( 8.02 )  IT  full    GOOD    
+118267  2011-06-01  ( 3.57 )  IT  full    GOOD 
+118268  2011-06-01  ( 4.87 )  IT  full    GOOD 
+118269  2011-06-01  ( 5.62 )  IT  full    GOOD 
+118270  2011-06-01  ( 2.7 )   IT  full    GOOD    
+118271  2011-06-01  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+118272  2011-06-01  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+118273  2011-06-01  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+118274  2011-06-01  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118275  2011-06-01  ( 7.46 )  IT  full    GOOD 
+118276  2011-06-02  ( 0.49 )  Ix  full    GOOD    
+118277  2011-06-02  ( 0.01 )  xx  full    FAULTY  short, low rate, failed, 
+118278  2011-06-02  ( 0.01 )  xx  full    FAULTY  short, low rate, failed, 
+118279  2011-06-02  ( 0.0 )   xx  full    FAULTY  short, low rate, failed, 
+118280  2011-06-02  ( 0.60 )  IT  full    GOOD 
+118281  2011-06-02  ( 4.79 )  IT  full    GOOD 
+118282  2011-06-02  ( 1.06 )  IT  full    GOOD 
+118283  2011-06-02  ( 8.00 )  IT  full    GOOD    
+118284  2011-06-02  ( 8.00 )  IT  full    GOOD    
+118285  2011-06-03  ( 8.00 )  IT  full    GOOD    
+118286  2011-06-03  ( 8.00 )  IT  full    GOOD    
+118287  2011-06-03  ( 8.00 )  IT  full    GOOD    
+118288  2011-06-04  ( 8.00 )  IT  full    GOOD    
+118289  2011-06-04  ( 8.00 )  IT  full    GOOD    
+118290  2011-06-04  ( 8.00 )  IT  full    GOOD    
+118291  2011-06-05  ( 8.00 )  IT  full    GOOD    
+118292  2011-06-05  ( 8.00 )  IT  full    GOOD    
+118293  2011-06-05  ( 8.00 )  IT  full    GOOD    
+118294  2011-06-06  ( 8.00 )  IT  full    GOOD    
+118295  2011-06-06  ( 8.00 )  IT  full    GOOD    
+118296  2011-06-06  ( 8.00 )  IT  full    GOOD    
+118297  2011-06-07  ( 4.57 )  IT  full    GOOD    
+118298  2011-06-07  ( 8.00 )  IT  full    GOOD    
+118299  2011-06-07  ( 8.00 )  IT  full    GOOD    
+118300  2011-06-08  ( 8.00 )  IT  full    GOOD    
+118301  2011-06-08  ( 8.00 )  IT  full    GOOD    
+118302  2011-06-08  ( 8.00 )  IT  full    GOOD    
+118303  2011-06-09  ( 3.51 )  IT  full    FAULTY  run coordinator bad I3, low rate, failed, 
+118304  2011-06-09  ( 2.36 )  IT  partial GOOD    
+118305  2011-06-09  ( 3.04 )  IT  full    GOOD 
+118306  2011-06-09  ( 1.95 )  IT  full    GOOD 
+118307  2011-06-09  ( 8.06 )  IT  full    GOOD    
+118308  2011-06-09  ( 8.02 )  IT  full    GOOD    
+118309  2011-06-10  ( 8.06 )  IT  full    GOOD    
+118310  2011-06-10  ( 0.09 )  xx  full    FAULTY  short, 
+118311  2011-06-10  ( 8.02 )  IT  full    GOOD    
+118312  2011-06-10  ( 5.96 )  IT  full    GOOD 
+118313  2011-06-11  ( 8.00 )  IT  full    GOOD    
+118314  2011-06-11  ( 8.00 )  IT  full    GOOD    
+118315  2011-06-11  ( 8.00 )  IT  full    GOOD    
+118316  2011-06-12  ( 8.00 )  IT  full    GOOD    
+118317  2011-06-12  ( 8.00 )  IT  full    GOOD    
+118318  2011-06-12  ( 1.10 )  IT  full    GOOD    
+118319  2011-06-12  ( 0.36 )  Ix  full    GOOD    
+118320  2011-06-12  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118321  2011-06-12  ( 0.47 )  Ix  full    GOOD    
+118322  2011-06-12  ( 0.0 )   xx  full    FAULTY  short, low rate, failed, 
+118323  2011-06-12  ( 8.02 )  IT  full    GOOD    
+118324  2011-06-13  ( 8.02 )  IT  full    GOOD    
+118325  2011-06-13  ( 8.02 )  IT  full    GOOD    
+118326  2011-06-13  ( 8.02 )  IT  full    GOOD    
+118327  2011-06-14  ( 8.05 )  IT  full    GOOD    
+118328  2011-06-14  ( 0.70 )  IT  full    GOOD 
+118329  2011-06-14  ( 8.02 )  IT  full    GOOD    
+118330  2011-06-14  ( 8.03 )  IT  full    GOOD    
+118331  2011-06-15  ( 8.02 )  IT  full    GOOD    
+118332  2011-06-15  ( 3.85 )  IT  full    FAULTY  zombies, failed, 
+118333  2011-06-15  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118334  2011-06-15  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118335  2011-06-15  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118336  2011-06-15  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118337  2011-06-15  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+118338  2011-06-15  ( 2.27 )  IT  partial GOOD    
+118339  2011-06-15  ( 1.04 )  IT  full    GOOD 
+118340  2011-06-15  ( 8.06 )  IT  full    GOOD    
+118341  2011-06-16  ( 8.02 )  IT  full    GOOD    
+118342  2011-06-16  ( 8.02 )  IT  full    GOOD    
+118343  2011-06-16  ( 8.02 )  IT  full    GOOD    
+118344  2011-06-17  ( 8.03 )  IT  full    GOOD    
+118345  2011-06-17  ( 8.02 )  IT  full    GOOD    
+118346  2011-06-17  ( 8.02 )  IT  full    GOOD    
+118347  2011-06-18  ( 8.02 )  IT  full    GOOD    
+118348  2011-06-18  ( 5.72 )  IT  full    GOOD 
+118349  2011-06-18  ( 8.02 )  IT  full    GOOD    
+118350  2011-06-19  ( 8.06 )  IT  full    GOOD    
+118351  2011-06-19  ( 8.02 )  IT  full    GOOD    
+118352  2011-06-19  ( 8.02 )  IT  full    GOOD    
+118353  2011-06-20  ( 8.02 )  IT  full    GOOD    
+118354  2011-06-20  ( 8.02 )  IT  full    GOOD    
+118355  2011-06-20  ( 8.02 )  IT  full    GOOD    
+118356  2011-06-21  ( 0.12 )  xx  full    FAULTY  short, 
+118357  2011-06-21  ( 0.25 )  Ix  partial GOOD    
+118358  2011-06-21  ( 1.87 )  IT  partial GOOD    
+118359  2011-06-21  ( 8.00 )  IT  full    GOOD    
+118360  2011-06-21  ( 8.00 )  IT  full    GOOD    
+118361  2011-06-21  ( 7.86 )  IT  full    GOOD    
+118362  2011-06-22  ( 1.03 )  IT  partial GOOD    
+118363  2011-06-22  ( 0.11 )  xx  full    FAULTY  short, 
+118364  2011-06-22  ( 8.02 )  IT  full    GOOD    
+118365  2011-06-22  ( 8.02 )  IT  full    GOOD    
+118366  2011-06-23  ( 8.05 )  IT  full    GOOD    
+118367  2011-06-23  ( 8.02 )  IT  full    GOOD    
+118368  2011-06-23  ( 8.02 )  IT  full    GOOD    
+118369  2011-06-24  ( 8.02 )  IT  full    GOOD    
+118370  2011-06-24  ( 1.36 )  IT  full    GOOD    
+118371  2011-06-24  ( 8.02 )  IT  full    GOOD    
+118372  2011-06-24  ( 3.48 )  IT  full    GOOD 
+118373  2011-06-24  ( 8.02 )  IT  full    GOOD    
+118374  2011-06-25  ( 8.02 )  IT  full    GOOD    
+118375  2011-06-25  ( 8.02 )  IT  full    GOOD    
+118376  2011-06-25  ( 8.02 )  IT  full    GOOD    
+118377  2011-06-26  ( 8.02 )  IT  full    GOOD    
+118378  2011-06-26  ( 8.02 )  IT  full    GOOD    
+118379  2011-06-26  ( 2.37 )  IT  full    FAULTY  failed, 
+118380  2011-06-27  ( 8.02 )  IT  full    GOOD    
+118381  2011-06-27  ( 4.81 )  IT  full    GOOD 
+118382  2011-06-27  ( 6.73 )  IT  full    GOOD    
+118383  2011-06-27  ( 8.00 )  IT  full    GOOD    
+118384  2011-06-28  ( 8.00 )  IT  full    GOOD    
+118385  2011-06-28  ( 8.00 )  IT  full    GOOD    
+118386  2011-06-28  ( 8.00 )  IT  full    GOOD    
+118387  2011-06-29  ( 8.00 )  IT  full    GOOD    
+118388  2011-06-29  ( 8.00 )  IT  full    GOOD    
+118389  2011-06-29  ( 8.00 )  IT  full    GOOD    
+118390  2011-06-30  ( 8.00 )  IT  full    GOOD    
+118391  2011-06-30  ( 8.00 )  IT  full    GOOD    
+118392  2011-06-30  ( 5.95 )  IT  full    GOOD    
+118393  2011-07-01  ( 8.00 )  IT  full    GOOD    
+118394  2011-07-01  ( 8.00 )  IT  full    GOOD    
+118395  2011-07-01  ( 8.00 )  IT  full    GOOD    
+118396  2011-07-02  ( 0.70 )  IT  full    GOOD    
+118397  2011-07-02  ( 8.00 )  IT  full    GOOD    
+118398  2011-07-02  ( 8.00 )  IT  full    GOOD    
+118399  2011-07-02  ( 8.00 )  IT  full    GOOD    
+118400  2011-07-03  ( 8.00 )  IT  full    GOOD    
+118401  2011-07-03  ( 8.00 )  IT  full    GOOD    
+118402  2011-07-03  ( 8.00 )  IT  full    GOOD    
+118403  2011-07-04  ( 8.00 )  IT  full    GOOD    
+118404  2011-07-04  ( 8.00 )  IT  full    GOOD    
+118405  2011-07-04  ( 8.00 )  IT  full    GOOD    
+118406  2011-07-05  ( 8.00 )  IT  full    GOOD    
+118407  2011-07-05  ( 8.00 )  IT  full    GOOD    
+118408  2011-07-05  ( 8.00 )  IT  full    GOOD    
+118409  2011-07-06  ( 8.00 )  IT  full    GOOD    
+118410  2011-07-06  ( 8.00 )  IT  full    GOOD    
+118411  2011-07-06  ( 8.00 )  IT  full    GOOD    
+118412  2011-07-07  ( 8.00 )  IT  full    GOOD    
+118413  2011-07-07  ( 8.00 )  IT  full    GOOD    
+118414  2011-07-07  ( 0.22 )  Ix  full    GOOD    
+118415  2011-07-07  ( 8.00 )  IT  full    GOOD    
+118416  2011-07-08  ( 8.00 )  IT  full    GOOD    
+118417  2011-07-08  ( 8.00 )  IT  full    GOOD    
+118418  2011-07-08  ( 0.03 )  xx  full    FAULTY  short, 
+118419  2011-07-08  ( 8.00 )  IT  full    GOOD    
+118420  2011-07-09  ( 8.00 )  IT  full    GOOD    
+118421  2011-07-09  ( 8.00 )  IT  full    GOOD    
+118422  2011-07-09  ( 8.00 )  IT  full    GOOD    
+118423  2011-07-10  ( 8.00 )  IT  full    GOOD    
+118424  2011-07-10  ( 8.00 )  IT  full    GOOD    
+118425  2011-07-10  ( 8.00 )  IT  full    GOOD    
+118426  2011-07-11  ( 8.00 )  IT  full    GOOD    
+118427  2011-07-11  ( 8.00 )  IT  full    GOOD    
+118428  2011-07-11  ( 0.02 )  xx  full    FAULTY  short, failed, 
+118429  2011-07-11  ( 8.00 )  IT  full    GOOD    
+118430  2011-07-12  ( 8.00 )  IT  full    GOOD    
+118431  2011-07-12  ( 8.00 )  IT  full    GOOD    
+118432  2011-07-12  ( 8.00 )  IT  full    GOOD    
+118433  2011-07-13  ( 8.00 )  IT  full    GOOD    
+118434  2011-07-13  ( 8.00 )  IT  full    GOOD    
+118435  2011-07-13  ( 8.00 )  IT  full    GOOD    
+118436  2011-07-14  ( 8.00 )  IT  full    GOOD    
+118437  2011-07-14  ( 8.00 )  IT  full    GOOD    
+118438  2011-07-14  ( 8.00 )  IT  full    GOOD    
+118439  2011-07-15  ( 8.00 )  IT  full    GOOD    
+118440  2011-07-15  ( 8.00 )  IT  full    GOOD    
+118441  2011-07-15  ( 6.00 )  IT  full    GOOD    
+118442  2011-07-16  ( 8.00 )  IT  full    GOOD    
+118443  2011-07-16  ( 1.71 )  IT  full    GOOD    
+118444  2011-07-16  ( 8.00 )  IT  full    GOOD    
+118445  2011-07-16  ( 8.00 )  IT  full    GOOD    
+118446  2011-07-17  ( 8.00 )  IT  full    GOOD    
+118447  2011-07-17  ( 8.00 )  IT  full    GOOD    
+118448  2011-07-17  ( 8.00 )  IT  full    GOOD    
+118449  2011-07-18  ( 8.00 )  IT  full    GOOD    
+118450  2011-07-18  ( 8.00 )  IT  full    GOOD    
+118451  2011-07-18  ( 8.00 )  IT  full    GOOD    
+118452  2011-07-19  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+118453  2011-07-19  ( 8.00 )  IT  full    GOOD    
+118454  2011-07-19  ( 8.00 )  IT  full    GOOD    
+118455  2011-07-19  ( 8.00 )  IT  full    GOOD    
+118456  2011-07-20  ( 8.00 )  IT  full    GOOD    
+118457  2011-07-20  ( 6.29 )  IT  full    GOOD    
+118458  2011-07-20  ( 8.00 )  IT  full    FAULTY  test, 
+118459  2011-07-21  ( 8.00 )  IT  full    FAULTY  test, 
+118460  2011-07-21  ( 8.00 )  IT  full    FAULTY  test, 
+118461  2011-07-21  ( 3.31 )  IT  full    FAULTY  test, 
+118462  2011-07-21  ( 8.00 )  IT  full    GOOD    
+118463  2011-07-22  ( 8.00 )  IT  full    GOOD    
+118464  2011-07-22  ( 8.00 )  IT  full    GOOD    
+118465  2011-07-22  ( 8.00 )  IT  full    GOOD    
+118466  2011-07-23  ( 8.00 )  IT  full    GOOD    
+118467  2011-07-23  ( 8.00 )  IT  full    GOOD    
+118468  2011-07-23  ( 8.00 )  IT  full    GOOD    
+118469  2011-07-24  ( 8.00 )  IT  full    GOOD    
+118470  2011-07-24  ( 8.00 )  IT  full    GOOD    
+118471  2011-07-24  ( 8.00 )  IT  full    GOOD    
+118472  2011-07-25  ( 8.00 )  IT  full    GOOD    
+118473  2011-07-25  ( 8.00 )  IT  full    GOOD    
+118474  2011-07-25  ( 8.00 )  IT  full    GOOD    
+118475  2011-07-26  ( 6.87 )  IT  full    GOOD    
+118476  2011-07-26  ( 2.67 )  IT  partial FAULTY  light, low rate, 
+118477  2011-07-26  ( 1.01 )  IT  partial FAULTY  light, low rate, 
+118478  2011-07-26  ( 0.02 )  xx  partial FAULTY  light, short, low rate, 
+118479  2011-07-26  ( 0.02 )  xx  partial FAULTY  light, short, low rate, 
+118480  2011-07-26  ( 0.02 )  xx  partial FAULTY  light, short, low rate, 
+118481  2011-07-26  ( 0.0 )   xx  partial FAULTY  light, short, low rate, 
+118482  2011-07-26  ( 0.02 )  xx  partial FAULTY  light, short, low rate, 
+118483  2011-07-26  ( 0.02 )  xx  partial FAULTY  light, short, low rate, 
+118484  2011-07-26  ( 0.0 )   xx  partial FAULTY  light, short, low rate, 
+118485  2011-07-26  ( 0.0 )   xx  partial FAULTY  light, short, low rate, 
+118486  2011-07-26  ( 0.0 )   xx  partial FAULTY  light, short, low rate, 
+118487  2011-07-26  ( 0.01 )  xx  partial FAULTY  light, short, low rate, 
+118488  2011-07-26  ( 0.02 )  xx  partial FAULTY  light, short, low rate, 
+118489  2011-07-26  ( 0.0 )   xx  partial FAULTY  light, short, low rate, 
+118490  2011-07-26  ( 0.0 )   xx  partial FAULTY  light, short, low rate, 
+118491  2011-07-26  ( 0.02 )  xx  partial FAULTY  light, short, low rate, 
+118492  2011-07-26  ( 0.0 )   xx  partial FAULTY  light, short, low rate, 
+118493  2011-07-26  ( 0.0 )   xx  full    FAULTY  light, short, low rate, 
+118494  2011-07-26  ( 0.22 )  Ix  full    FAULTY  light, 
+118495  2011-07-26  ( 1.17 )  IT  full    GOOD    
+118496  2011-07-26  ( 4.43 )  IT  partial FAULTY  light, low rate, 
+118497  2011-07-26  ( 8.00 )  IT  full    GOOD    
+118498  2011-07-27  ( 8.00 )  IT  full    GOOD    
+118499  2011-07-27  ( 8.00 )  IT  full    GOOD    
+118500  2011-07-27  ( 1.45 )  IT  full    GOOD    
+118501  2011-07-28  ( 0.20 )  Ix  full    FAULTY  light, zombies, low rate, 
+118502  2011-07-28  ( 0.13 )  xx  full    FAULTY  short, 
+118503  2011-07-28  ( 0.39 )  Ix  full    FAULTY  light, low rate, 
+118504  2011-07-28  ( 8.00 )  IT  full    GOOD    
+118505  2011-07-28  ( 8.00 )  IT  full    GOOD    
+118506  2011-07-28  ( 8.00 )  IT  full    GOOD    
+118507  2011-07-29  ( 8.00 )  IT  full    GOOD    
+118508  2011-07-29  ( 8.00 )  IT  full    GOOD    
+118509  2011-07-29  ( 7.07 )  IT  full    GOOD    
+118510  2011-07-30  ( 8.00 )  IT  full    GOOD    
+118511  2011-07-30  ( 8.00 )  IT  full    GOOD    
+118512  2011-07-30  ( 8.00 )  IT  full    GOOD    
+118513  2011-07-31  ( 8.00 )  IT  full    GOOD    
+118514  2011-07-31  ( 8.00 )  IT  full    GOOD    
+118515  2011-07-31  ( 8.00 )  IT  full    GOOD    
+118516  2011-08-01  ( 8.00 )  IT  full    GOOD    
+118517  2011-08-01  ( 8.00 )  IT  full    GOOD    
+118518  2011-08-01  ( 8.00 )  IT  full    GOOD    
+118519  2011-08-02  ( 8.00 )  IT  full    GOOD    
+118520  2011-08-02  ( 8.00 )  IT  full    GOOD    
+118521  2011-08-02  ( 4.85 )  IT  full    GOOD    
+118522  2011-08-02  ( 0.22 )  Ix  full    GOOD    
+118523  2011-08-02  ( 0.01 )  xx  full    FAULTY  short, 
+118524  2011-08-02  ( 8.00 )  IT  full    GOOD    
+118525  2011-08-03  ( 8.00 )  IT  full    GOOD    
+118526  2011-08-03  ( 8.00 )  IT  full    GOOD    
+118527  2011-08-03  ( 2.07 )  IT  full    GOOD    
+118528  2011-08-04  ( 8.00 )  IT  full    GOOD    
+118529  2011-08-04  ( 8.00 )  IT  full    GOOD    
+118530  2011-08-04  ( 8.00 )  IT  full    GOOD    
+118531  2011-08-05  ( 8.00 )  IT  full    GOOD    
+118532  2011-08-05  ( 8.00 )  IT  full    GOOD    
+118533  2011-08-05  ( 8.00 )  IT  full    GOOD    
+118534  2011-08-06  ( 8.00 )  IT  full    GOOD    
+118535  2011-08-06  ( 8.00 )  IT  full    GOOD    
+118536  2011-08-06  ( 8.00 )  IT  full    GOOD    
+118537  2011-08-07  ( 8.00 )  IT  full    GOOD    
+118538  2011-08-07  ( 8.00 )  IT  full    GOOD    
+118539  2011-08-07  ( 8.00 )  IT  full    GOOD    
+118540  2011-08-08  ( 8.00 )  IT  full    GOOD    
+118541  2011-08-08  ( 8.00 )  IT  full    GOOD    
+118542  2011-08-08  ( 8.00 )  IT  full    GOOD    
+118543  2011-08-09  ( 3.58 )  IT  full    GOOD    
+118544  2011-08-09  ( 0.13 )  xx  partial FAULTY  short, 
+118545  2011-08-09  ( 8.00 )  IT  full    GOOD    
+118546  2011-08-09  ( 8.00 )  IT  full    GOOD    
+118547  2011-08-09  ( 5.37 )  IT  full    GOOD    
+118548  2011-08-10  ( 0.16 )  Ix  partial GOOD    
+118549  2011-08-10  ( 8.00 )  IT  full    GOOD    
+118550  2011-08-10  ( 8.00 )  IT  full    GOOD    
+118551  2011-08-10  ( 8.00 )  IT  full    GOOD    
+118552  2011-08-11  ( 8.00 )  IT  full    GOOD    
+118553  2011-08-11  ( 8.00 )  IT  full    GOOD    
+118554  2011-08-11  ( 8.00 )  IT  full    GOOD    
+118555  2011-08-12  ( 8.00 )  IT  full    GOOD    
+118556  2011-08-12  ( 8.00 )  IT  full    GOOD    
+118557  2011-08-12  ( 0.03 )  xx  full    FAULTY  short, failed, 
+118558  2011-08-12  ( 8.00 )  IT  full    GOOD    
+118559  2011-08-13  ( 8.00 )  IT  full    GOOD    
+118560  2011-08-13  ( 0.03 )  xx  full    FAULTY  short, failed, 
+118561  2011-08-13  ( 8.00 )  IT  full    GOOD    
+118562  2011-08-13  ( 8.00 )  IT  full    GOOD    
+118563  2011-08-14  ( 8.00 )  IT  full    GOOD    
+118564  2011-08-14  ( 8.00 )  IT  full    GOOD    
+118565  2011-08-14  ( 8.00 )  IT  full    GOOD    
+118566  2011-08-15  ( 8.00 )  IT  full    GOOD    
+118567  2011-08-15  ( 8.00 )  IT  full    GOOD    
+118568  2011-08-15  ( 8.00 )  IT  full    GOOD    
+118569  2011-08-16  ( 8.00 )  IT  full    GOOD    
+118570  2011-08-16  ( 8.00 )  IT  full    GOOD    
+118571  2011-08-16  ( 8.00 )  IT  full    GOOD    
+118572  2011-08-17  ( 8.00 )  IT  full    GOOD    
+118573  2011-08-17  ( 8.00 )  IT  full    GOOD    
+118574  2011-08-17  ( 8.00 )  IT  full    GOOD    
+118575  2011-08-18  ( 8.00 )  IT  full    GOOD    
+118576  2011-08-18  ( 8.00 )  IT  full    GOOD    
+118577  2011-08-18  ( 7.25 )  IT  full    FAULTY  zombies, failed, 
+118578  2011-08-19  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118579  2011-08-19  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+118580  2011-08-19  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118581  2011-08-19  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118582  2011-08-19  ( 1.04 )  IT  partial GOOD    
+118583  2011-08-19  ( 8.00 )  IT  full    GOOD    
+118584  2011-08-19  ( 8.00 )  IT  full    GOOD    
+118585  2011-08-19  ( 8.00 )  IT  full    GOOD    
+118586  2011-08-20  ( 8.00 )  IT  full    GOOD    
+118587  2011-08-20  ( 8.00 )  IT  full    GOOD    
+118588  2011-08-20  ( 8.00 )  IT  full    GOOD    
+118589  2011-08-21  ( 8.00 )  IT  full    GOOD    
+118590  2011-08-21  ( 8.00 )  IT  full    GOOD    
+118591  2011-08-21  ( 8.00 )  IT  full    GOOD    
+118592  2011-08-22  ( 8.00 )  IT  full    GOOD    
+118593  2011-08-22  ( 8.00 )  IT  full    GOOD    
+118594  2011-08-22  ( 8.00 )  IT  full    GOOD    
+118595  2011-08-23  ( 8.01 )  IT  full    GOOD    
+118596  2011-08-23  ( 8.00 )  IT  full    GOOD    
+118597  2011-08-23  ( 8.00 )  IT  full    GOOD    
+118598  2011-08-24  ( 8.00 )  IT  full    GOOD    
+118599  2011-08-24  ( 8.00 )  IT  full    GOOD    
+118600  2011-08-24  ( 8.00 )  IT  full    GOOD    
+118601  2011-08-25  ( 8.00 )  IT  full    GOOD    
+118602  2011-08-25  ( 8.00 )  IT  full    GOOD    
+118603  2011-08-25  ( 8.00 )  IT  full    GOOD    
+118604  2011-08-26  ( 8.00 )  IT  full    GOOD    
+118605  2011-08-26  ( 8.00 )  IT  full    GOOD    
+118606  2011-08-26  ( 8.00 )  IT  full    GOOD    
+118607  2011-08-27  ( 8.00 )  IT  full    GOOD    
+118608  2011-08-27  ( 8.00 )  IT  full    GOOD    
+118609  2011-08-27  ( 8.00 )  IT  full    GOOD    
+118610  2011-08-28  ( 8.00 )  IT  full    GOOD    
+118611  2011-08-28  ( 8.00 )  IT  full    GOOD    
+118612  2011-08-28  ( 8.00 )  IT  full    GOOD    
+118613  2011-08-29  ( 8.00 )  IT  full    GOOD    
+118614  2011-08-29  ( 8.00 )  IT  full    GOOD    
+118615  2011-08-29  ( 8.00 )  IT  full    GOOD    
+118616  2011-08-30  ( 8.00 )  IT  full    GOOD    
+118617  2011-08-30  ( 8.00 )  IT  full    GOOD    
+118618  2011-08-30  ( 8.00 )  IT  full    GOOD    
+118619  2011-08-31  ( 4.93 )  IT  full    GOOD    
+118620  2011-08-31  ( 0.04 )  xx  full    FAULTY  short, 
+118621  2011-08-31  ( 1.52 )  IT  full    GOOD    
+118622  2011-08-31  ( 2.20 )  IT  partial GOOD    
+118623  2011-08-31  ( 5.16 )  IT  full    GOOD    
+118624  2011-08-31  ( 1.56 )  IT  partial GOOD    
+118625  2011-08-31  ( 1.40 )  IT  partial GOOD    
+118626  2011-08-31  ( 0.03 )  xx  full    FAULTY  short, failed, 
+118627  2011-08-31  ( 8.00 )  IT  full    GOOD    
+118628  2011-09-01  ( 8.00 )  IT  full    GOOD    
+118629  2011-09-01  ( 8.00 )  IT  full    GOOD    
+118630  2011-09-01  ( 0.03 )  xx  full    FAULTY  short, failed, 
+118631  2011-09-01  ( 7.06 )  IT  full    GOOD    
+118632  2011-09-02  ( 4.00 )  IT  full    FAULTY  test, 
+118633  2011-09-02  ( 0.19 )  Ix  full    FAULTY  test, 
+118634  2011-09-02  ( 8.00 )  IT  full    GOOD    
+118635  2011-09-02  ( 8.00 )  IT  full    GOOD    
+118636  2011-09-03  ( 1.76 )  IT  full    FAULTY  failed, 
+118637  2011-09-03  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118638  2011-09-03  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+118639  2011-09-03  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+118640  2011-09-03  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118641  2011-09-03  ( 0.30 )  Ix  partial GOOD    
+118642  2011-09-03  ( 8.00 )  IT  full    GOOD    
+118643  2011-09-03  ( 8.00 )  IT  full    GOOD    
+118644  2011-09-03  ( 8.00 )  IT  full    GOOD    
+118645  2011-09-04  ( 8.00 )  IT  full    GOOD    
+118646  2011-09-04  ( 8.00 )  IT  full    GOOD    
+118647  2011-09-04  ( 8.00 )  IT  full    GOOD    
+118648  2011-09-05  ( 8.00 )  IT  full    GOOD    
+118649  2011-09-05  ( 8.00 )  IT  full    GOOD    
+118650  2011-09-05  ( 8.00 )  IT  full    GOOD    
+118651  2011-09-06  ( 8.00 )  IT  full    GOOD    
+118652  2011-09-06  ( 8.00 )  IT  full    GOOD    
+118653  2011-09-06  ( 6.80 )  IT  full    FAULTY  failed, 
+118654  2011-09-07  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+118655  2011-09-07  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+118656  2011-09-07  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+118657  2011-09-07  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118658  2011-09-07  ( 0.97 )  IT  partial GOOD    
+118659  2011-09-07  ( 8.00 )  IT  full    GOOD    
+118660  2011-09-07  ( 8.00 )  IT  full    GOOD    
+118661  2011-09-07  ( 8.00 )  IT  full    GOOD    
+118662  2011-09-08  ( 8.00 )  IT  full    GOOD    
+118663  2011-09-08  ( 8.00 )  IT  full    GOOD    
+118664  2011-09-08  ( 8.00 )  IT  full    GOOD    
+118665  2011-09-09  ( 8.00 )  IT  full    GOOD    
+118666  2011-09-09  ( 8.00 )  IT  full    GOOD    
+118667  2011-09-09  ( 8.00 )  IT  full    GOOD    
+118668  2011-09-10  ( 8.00 )  IT  full    GOOD    
+118669  2011-09-10  ( 8.00 )  IT  full    GOOD    
+118670  2011-09-10  ( 8.00 )  IT  full    GOOD    
+118671  2011-09-11  ( 8.00 )  IT  full    GOOD    
+118672  2011-09-11  ( 8.00 )  IT  full    GOOD    
+118673  2011-09-11  ( 2.30 )  IT  full    GOOD    
+118674  2011-09-11  ( 0.23 )  Ix  full    FAULTY  light, zombies, low rate, 
+118675  2011-09-11  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+118676  2011-09-11  ( 0.23 )  Ix  full    FAULTY  light, zombies, low rate, 
+118677  2011-09-11  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+118678  2011-09-11  ( 8.00 )  IT  full    GOOD    
+118679  2011-09-12  ( 8.00 )  IT  full    GOOD    
+118680  2011-09-12  ( 8.00 )  IT  full    GOOD    
+118681  2011-09-12  ( 8.00 )  IT  full    GOOD    
+118682  2011-09-13  ( 8.00 )  IT  full    GOOD    
+118683  2011-09-13  ( 8.00 )  IT  full    GOOD    
+118684  2011-09-13  ( 8.00 )  IT  full    GOOD    
+118685  2011-09-14  ( 8.00 )  IT  full    GOOD    
+118686  2011-09-14  ( 8.00 )  IT  full    GOOD    
+118687  2011-09-14  ( 8.00 )  IT  full    GOOD    
+118688  2011-09-15  ( 8.00 )  IT  full    GOOD    
+118689  2011-09-15  ( 8.00 )  IT  full    GOOD    
+118690  2011-09-15  ( 0.96 )  IT  full    GOOD    
+118691  2011-09-16  ( 8.00 )  IT  full    GOOD    
+118692  2011-09-16  ( 8.00 )  IT  full    GOOD    
+118693  2011-09-16  ( 8.00 )  IT  full    GOOD    
+118694  2011-09-17  ( 0.93 )  IT  full    GOOD    
+118695  2011-09-17  ( 8.00 )  IT  full    GOOD    
+118696  2011-09-17  ( 8.00 )  IT  full    GOOD    
+118697  2011-09-17  ( 8.00 )  IT  full    GOOD    
+118698  2011-09-18  ( 8.00 )  IT  full    GOOD    
+118699  2011-09-18  ( 8.00 )  IT  full    GOOD    
+118700  2011-09-18  ( 8.00 )  IT  full    GOOD    
+118701  2011-09-19  ( 8.00 )  IT  full    GOOD    
+118702  2011-09-19  ( 8.00 )  IT  full    GOOD    
+118703  2011-09-19  ( 8.00 )  IT  full    GOOD    
+118704  2011-09-20  ( 8.00 )  IT  full    GOOD    
+118705  2011-09-20  ( 8.00 )  IT  full    GOOD    
+118706  2011-09-20  ( 8.00 )  IT  full    GOOD    
+118707  2011-09-21  ( 8.00 )  IT  full    GOOD    
+118708  2011-09-21  ( 8.00 )  IT  full    GOOD    
+118709  2011-09-21  ( 8.00 )  IT  full    GOOD    
+118710  2011-09-22  ( 8.00 )  IT  full    GOOD    
+118711  2011-09-22  ( 8.00 )  IT  full    GOOD    
+118712  2011-09-22  ( 8.00 )  IT  full    GOOD    
+118713  2011-09-23  ( 8.00 )  IT  full    GOOD    
+118714  2011-09-23  ( 8.00 )  IT  full    GOOD    
+118715  2011-09-23  ( 8.00 )  IT  full    GOOD    
+118716  2011-09-24  ( 8.00 )  IT  full    GOOD    
+118717  2011-09-24  ( 8.00 )  IT  full    GOOD    
+118718  2011-09-24  ( 8.00 )  IT  full    GOOD    
+118719  2011-09-25  ( 8.00 )  IT  full    GOOD    
+118720  2011-09-25  ( 8.00 )  IT  full    GOOD    
+118721  2011-09-25  ( 8.00 )  IT  full    GOOD    
+118722  2011-09-26  ( 8.00 )  IT  full    GOOD    
+118723  2011-09-26  ( 8.00 )  IT  full    GOOD    
+118724  2011-09-26  ( 8.00 )  IT  full    GOOD    
+118725  2011-09-27  ( 8.00 )  IT  full    GOOD    
+118726  2011-09-27  ( 8.00 )  IT  full    GOOD    
+118727  2011-09-27  ( 8.00 )  IT  full    GOOD    
+118728  2011-09-28  ( 8.00 )  IT  full    GOOD    
+118729  2011-09-28  ( 6.43 )  IT  full    GOOD    
+118730  2011-09-28  ( 1.59 )  IT  partial GOOD    
+118731  2011-09-28  ( 1.34 )  IT  partial GOOD    
+118732  2011-09-28  ( 1.49 )  IT  full    GOOD    
+118733  2011-09-28  ( 0.26 )  Ix  full    FAULTY  light, zombies, low rate, 
+118734  2011-09-28  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+118735  2011-09-28  ( 0.22 )  Ix  full    FAULTY  light, zombies, low rate, 
+118736  2011-09-28  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+118737  2011-09-28  ( 8.00 )  IT  full    GOOD    
+118738  2011-09-29  ( 8.00 )  IT  full    GOOD    
+118739  2011-09-29  ( 8.00 )  IT  full    GOOD    
+118740  2011-09-29  ( 8.00 )  IT  full    GOOD    
+118741  2011-09-30  ( 8.00 )  IT  full    GOOD    
+118742  2011-09-30  ( 8.00 )  IT  full    GOOD    
+118743  2011-09-30  ( 8.00 )  IT  full    GOOD    
+118744  2011-10-01  ( 8.00 )  IT  full    GOOD    
+118745  2011-10-01  ( 7.92 )  IT  full    GOOD    
+118746  2011-10-01  ( 8.00 )  IT  full    GOOD    
+118747  2011-10-02  ( 8.00 )  IT  full    GOOD    
+118748  2011-10-02  ( 8.00 )  IT  full    GOOD    
+118749  2011-10-02  ( 8.00 )  IT  full    GOOD    
+118750  2011-10-03  ( 8.00 )  IT  full    GOOD    
+118751  2011-10-03  ( 8.00 )  IT  full    GOOD    
+118752  2011-10-03  ( 8.00 )  IT  full    GOOD    
+118753  2011-10-04  ( 8.00 )  IT  full    GOOD    
+118754  2011-10-04  ( 8.00 )  IT  full    GOOD    
+118755  2011-10-04  ( 8.00 )  IT  full    GOOD    
+118756  2011-10-05  ( 8.00 )  IT  full    GOOD    
+118757  2011-10-05  ( 8.00 )  IT  full    GOOD    
+118758  2011-10-05  ( 8.00 )  IT  full    GOOD    
+118759  2011-10-06  ( 8.00 )  IT  full    GOOD    
+118760  2011-10-06  ( 8.00 )  IT  full    GOOD    
+118761  2011-10-06  ( 8.00 )  IT  full    GOOD    
+118762  2011-10-07  ( 8.00 )  IT  full    GOOD    
+118763  2011-10-07  ( 8.00 )  IT  full    GOOD    
+118764  2011-10-07  ( 8.00 )  IT  full    GOOD    
+118765  2011-10-08  ( 8.00 )  IT  full    GOOD    
+118766  2011-10-08  ( 7.55 )  IT  full    GOOD    
+118767  2011-10-08  ( 8.00 )  IT  full    GOOD    
+118768  2011-10-09  ( 8.00 )  IT  full    GOOD    
+118769  2011-10-09  ( 8.00 )  IT  full    GOOD    
+118770  2011-10-09  ( 8.00 )  IT  full    GOOD    
+118771  2011-10-10  ( 8.00 )  IT  full    GOOD    
+118772  2011-10-10  ( 8.00 )  IT  full    GOOD    
+118773  2011-10-10  ( 8.00 )  IT  full    GOOD    
+118774  2011-10-11  ( 8.00 )  IT  full    GOOD    
+118775  2011-10-11  ( 8.00 )  IT  full    GOOD    
+118776  2011-10-11  ( 8.00 )  IT  full    GOOD    
+118777  2011-10-12  ( 8.00 )  IT  full    GOOD    
+118778  2011-10-12  ( 8.00 )  IT  full    GOOD    
+118779  2011-10-12  ( 0.03 )  xx  full    FAULTY  short, failed, 
+118780  2011-10-12  ( 8.00 )  IT  full    GOOD    
+118781  2011-10-13  ( 8.00 )  IT  full    GOOD    
+118782  2011-10-13  ( 8.00 )  IT  full    GOOD    
+118783  2011-10-13  ( 8.00 )  IT  full    GOOD    
+118784  2011-10-14  ( 8.00 )  IT  full    GOOD    
+118785  2011-10-14  ( 8.00 )  IT  full    GOOD    
+118786  2011-10-14  ( 8.00 )  IT  full    GOOD    
+118787  2011-10-15  ( 8.00 )  IT  full    GOOD    
+118788  2011-10-15  ( 8.00 )  IT  full    GOOD    
+118789  2011-10-15  ( 8.00 )  IT  full    GOOD    
+118790  2011-10-16  ( 8.00 )  IT  full    GOOD    
+118791  2011-10-16  ( 8.00 )  IT  full    GOOD    
+118792  2011-10-16  ( 8.00 )  IT  full    GOOD    
+118793  2011-10-17  ( 8.00 )  IT  full    GOOD    
+118794  2011-10-17  ( 8.00 )  IT  full    GOOD    
+118795  2011-10-17  ( 8.00 )  IT  full    GOOD    
+118796  2011-10-18  ( 8.00 )  IT  full    GOOD    
+118797  2011-10-18  ( 8.00 )  IT  full    GOOD    
+118798  2011-10-18  ( 8.00 )  IT  full    GOOD    
+118799  2011-10-19  ( 8.00 )  IT  full    GOOD    
+118800  2011-10-19  ( 8.00 )  IT  full    GOOD    
+118801  2011-10-19  ( 8.00 )  IT  full    GOOD    
+118802  2011-10-20  ( 8.00 )  IT  full    GOOD    
+118803  2011-10-20  ( 8.00 )  IT  full    GOOD    
+118804  2011-10-20  ( 8.00 )  IT  full    GOOD    
+118805  2011-10-21  ( 8.00 )  IT  full    GOOD    
+118806  2011-10-21  ( 8.00 )  IT  full    GOOD    
+118807  2011-10-21  ( 8.00 )  IT  full    GOOD    
+118808  2011-10-22  ( 8.00 )  IT  full    GOOD    
+118809  2011-10-22  ( 8.00 )  IT  full    GOOD    
+118810  2011-10-22  ( 8.00 )  IT  full    GOOD    
+118811  2011-10-23  ( 8.00 )  IT  full    GOOD    
+118812  2011-10-23  ( 8.00 )  IT  full    GOOD    
+118813  2011-10-23  ( 8.00 )  IT  full    GOOD    
+118814  2011-10-24  ( 8.00 )  IT  full    GOOD    
+118815  2011-10-24  ( 6.48 )  IT  full    GOOD    
+118816  2011-10-24  ( 0.04 )  xx  full    FAULTY  short, test, zombies, low rate, 
+118817  2011-10-24  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+118818  2011-10-24  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+118819  2011-10-24  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+118820  2011-10-24  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+118821  2011-10-24  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118822  2011-10-24  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118823  2011-10-24  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+118824  2011-10-24  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+118825  2011-10-24  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118826  2011-10-24  ( 8.00 )  IT  full    GOOD    
+118827  2011-10-25  ( 8.00 )  IT  full    GOOD    
+118828  2011-10-25  ( 8.00 )  IT  full    GOOD    
+118829  2011-10-25  ( 8.00 )  IT  full    GOOD    
+118830  2011-10-26  ( 8.00 )  IT  full    GOOD    
+118831  2011-10-26  ( 8.00 )  IT  full    GOOD    
+118832  2011-10-26  ( 8.00 )  IT  full    GOOD    
+118833  2011-10-27  ( 8.00 )  IT  full    GOOD    
+118834  2011-10-27  ( 8.00 )  IT  full    GOOD    
+118835  2011-10-27  ( 8.00 )  IT  full    GOOD    
+118836  2011-10-28  ( 8.00 )  IT  full    GOOD    
+118837  2011-10-28  ( 8.00 )  IT  full    GOOD    
+118838  2011-10-28  ( 8.00 )  IT  full    GOOD    
+118839  2011-10-29  ( 8.00 )  IT  full    GOOD    
+118840  2011-10-29  ( 8.00 )  IT  full    GOOD    
+118841  2011-10-29  ( 8.00 )  IT  full    GOOD    
+118842  2011-10-30  ( 8.00 )  IT  full    GOOD    
+118843  2011-10-30  ( 8.00 )  IT  full    GOOD    
+118844  2011-10-30  ( 8.00 )  IT  full    GOOD    
+118845  2011-10-31  ( 4.56 )  IT  full    FAULTY  failed, 
+118846  2011-10-31  ( 5.87 )  IT  full    GOOD    
+118847  2011-10-31  ( 0.19 )  Ix  full    GOOD    
+118848  2011-10-31  ( 8.00 )  IT  full    GOOD    
+118849  2011-11-01  ( 0.01 )  xx  full    FAULTY  short, low rate, failed, 
+118850  2011-11-01  ( 8.00 )  IT  full    GOOD    
+118851  2011-11-01  ( 8.00 )  IT  full    GOOD    
+118852  2011-11-01  ( 8.00 )  IT  full    GOOD    
+118853  2011-11-02  ( 8.00 )  IT  full    GOOD    
+118854  2011-11-02  ( 8.00 )  IT  full    GOOD    
+118855  2011-11-02  ( 8.00 )  IT  full    GOOD    
+118856  2011-11-03  ( 8.00 )  IT  full    GOOD    
+118857  2011-11-03  ( 8.00 )  IT  full    GOOD    
+118858  2011-11-03  ( 8.00 )  IT  full    GOOD    
+118859  2011-11-04  ( 8.00 )  IT  full    GOOD    
+118860  2011-11-04  ( 8.00 )  IT  full    GOOD    
+118861  2011-11-04  ( 4.64 )  IT  full    GOOD    
+118862  2011-11-04  ( 0.24 )  Ix  full    FAULTY  light, zombies, low rate, 
+118863  2011-11-04  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+118864  2011-11-04  ( 0.21 )  Ix  full    FAULTY  light, zombies, low rate, 
+118865  2011-11-04  ( 0.03 )  xx  full    FAULTY  short, zombies, low rate, failed, 
+118866  2011-11-04  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+118867  2011-11-04  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118868  2011-11-04  ( 2.14 )  IT  partial GOOD    
+118869  2011-11-05  ( 8.00 )  IT  full    GOOD    
+118870  2011-11-05  ( 8.00 )  IT  full    GOOD    
+118871  2011-11-05  ( 0.82 )  IT  full    GOOD    
+118872  2011-11-05  ( 1.88 )  IT  full    FAULTY  light, 
+118873  2011-11-05  ( 8.00 )  IT  full    GOOD    
+118874  2011-11-06  ( 8.00 )  IT  full    GOOD    
+118875  2011-11-06  ( 8.00 )  IT  full    GOOD    
+118876  2011-11-06  ( 8.00 )  IT  full    GOOD    
+118877  2011-11-07  ( 8.01 )  IT  full    GOOD    
+118878  2011-11-07  ( 7.95 )  IT  full    GOOD    
+118879  2011-11-07  ( 1.69 )  IT  partial GOOD    
+118880  2011-11-07  ( 2.07 )  IT  partial GOOD    
+118881  2011-11-08  ( 8.00 )  IT  full    GOOD    
+118882  2011-11-08  ( 8.00 )  IT  full    GOOD    
+118883  2011-11-08  ( 8.00 )  IT  full    GOOD    
+118884  2011-11-09  ( 2.56 )  IT  full    GOOD    
+118885  2011-11-09  ( 6.44 )  IT  full    GOOD    
+118886  2011-11-09  ( 8.00 )  IT  full    GOOD    
+118887  2011-11-09  ( 8.00 )  IT  full    GOOD    
+118888  2011-11-10  ( 8.00 )  IT  full    GOOD    
+118889  2011-11-10  ( 8.00 )  IT  full    GOOD    
+118890  2011-11-10  ( 5.91 )  IT  full    GOOD    
+118891  2011-11-11  ( 0.32 )  Ix  partial GOOD    
+118892  2011-11-11  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+118893  2011-11-11  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+118894  2011-11-11  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118895  2011-11-11  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118896  2011-11-11  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+118897  2011-11-11  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+118898  2011-11-11  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+118899  2011-11-11  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118900  2011-11-11  ( 0.35 )  Ix  full    GOOD    
+118901  2011-11-11  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+118902  2011-11-11  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118903  2011-11-11  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+118904  2011-11-11  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118905  2011-11-11  ( 8.00 )  IT  full    GOOD    
+118906  2011-11-11  ( 8.00 )  IT  full    GOOD    
+118907  2011-11-11  ( 8.00 )  IT  full    GOOD    
+118908  2011-11-12  ( 8.00 )  IT  full    GOOD    
+118909  2011-11-12  ( 8.00 )  IT  full    GOOD    
+118910  2011-11-12  ( 0.03 )  xx  full    FAULTY  short, 
+118911  2011-11-12  ( 2.86 )  IT  full    GOOD    
+118912  2011-11-12  ( 0.21 )  Ix  full    FAULTY  light, zombies, low rate, 
+118913  2011-11-12  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+118914  2011-11-12  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+118915  2011-11-12  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118916  2011-11-12  ( 1.09 )  IT  partial GOOD    
+118917  2011-11-12  ( 8.00 )  IT  full    GOOD    
+118918  2011-11-13  ( 8.00 )  IT  full    GOOD    
+118919  2011-11-13  ( 8.00 )  IT  full    GOOD    
+118920  2011-11-13  ( 8.00 )  IT  full    GOOD    
+118921  2011-11-14  ( 8.00 )  IT  full    GOOD    
+118922  2011-11-14  ( 8.00 )  IT  full    GOOD    
+118923  2011-11-14  ( 3.36 )  IT  full    GOOD    
+118924  2011-11-15  ( 0.77 )  IT  partial GOOD    
+118925  2011-11-15  ( 8.00 )  IT  full    GOOD    
+118926  2011-11-15  ( 8.00 )  IT  full    GOOD    
+118927  2011-11-15  ( 7.92 )  IT  full    GOOD    
+118928  2011-11-16  ( 8.00 )  IT  full    FAULTY  test, 
+118929  2011-11-16  ( 8.00 )  IT  full    FAULTY  test, 
+118930  2011-11-16  ( 7.89 )  IT  full    FAULTY  test, 
+118931  2011-11-17  ( 8.00 )  IT  full    GOOD    
+118932  2011-11-17  ( 8.00 )  IT  full    GOOD    
+118933  2011-11-17  ( 8.00 )  IT  full    GOOD    
+118934  2011-11-18  ( 8.00 )  IT  full    GOOD    
+118935  2011-11-18  ( 8.00 )  IT  full    GOOD    
+118936  2011-11-18  ( 1.64 )  IT  full    GOOD    
+118937  2011-11-18  ( 0.01 )  xx  full    FAULTY  short, test, low rate, 
+118938  2011-11-18  ( 0.05 )  xx  full    FAULTY  short, test, zombies, low rate, 
+118939  2011-11-18  ( 0.06 )  xx  full    FAULTY  short, test, zombies, low rate, 
+118940  2011-11-18  ( 0.06 )  xx  full    FAULTY  short, test, zombies, low rate, 
+118941  2011-11-18  ( 0.02 )  xx  full    FAULTY  short, test, low rate, 
+118950  2011-11-18  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+118951  2011-11-18  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+118952  2011-11-18  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+118953  2011-11-18  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+118954  2011-11-18  ( 0.00 )  xx  full    FAULTY  short, test, 
+118955  2011-11-18  ( 0.01 )  xx  full    FAULTY  short, 
+118956  2011-11-18  ( 0.76 )  IT  full    GOOD    
+118957  2011-11-18  ( 0.08 )  xx  full    FAULTY  short, test, zombies, low rate, 
+118958  2011-11-18  ( 0.19 )  Ix  full    GOOD    
+118959  2011-11-18  ( 0.28 )  Ix  full    FAULTY  test, 
+118960  2011-11-18  ( 0.37 )  Ix  full    FAULTY  test, zombies, low rate, 
+118961  2011-11-18  ( 8.00 )  IT  full    GOOD    
+118962  2011-11-19  ( 8.00 )  IT  full    GOOD    
+118963  2011-11-19  ( 5.37 )  IT  full    GOOD    
+118964  2011-11-19  ( 0.06 )  xx  full    FAULTY  light, short, 
+118965  2011-11-19  ( 0.24 )  Ix  full    FAULTY  light, low rate, 
+118966  2011-11-19  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+118967  2011-11-19  ( 0.12 )  xx  full    FAULTY  short, 
+118968  2011-11-19  ( 0.20 )  Ix  full    FAULTY  light, zombies, 
+118969  2011-11-19  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+118970  2011-11-19  ( 8.00 )  IT  full    GOOD    
+118971  2011-11-20  ( 8.00 )  IT  full    GOOD    
+118972  2011-11-20  ( 8.00 )  IT  full    GOOD    
+118973  2011-11-20  ( 8.00 )  IT  full    GOOD    
+118974  2011-11-21  ( 8.00 )  IT  full    GOOD    
+118975  2011-11-21  ( 8.00 )  IT  full    GOOD    
+118976  2011-11-21  ( 4.55 )  IT  full    GOOD    
+118977  2011-11-22  ( 1.81 )  IT  partial GOOD    
+118978  2011-11-22  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118979  2011-11-22  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118980  2011-11-22  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118981  2011-11-22  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118982  2011-11-22  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118983  2011-11-22  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118984  2011-11-22  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118985  2011-11-22  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+118990  2011-11-22  ( 8.00 )  IT  full    GOOD    
+118991  2011-11-22  ( 8.00 )  IT  full    GOOD    
+118992  2011-11-22  ( 5.89 )  IT  full    GOOD    
+118993  2011-11-23  ( 0.69 )  IT  partial GOOD    
+118994  2011-11-23  ( 0.54 )  IT  partial GOOD    
+118995  2011-11-23  ( 0.17 )  Ix  full    GOOD    
+118996  2011-11-23  ( 0.44 )  Ix  partial FAULTY  failed  
+118997  2011-11-23  ( 0.63 )  IT  partial GOOD    
+118998  2011-11-23  ( 8.00 )  IT  full    GOOD    
+118999  2011-11-23  ( 8.00 )  IT  full    GOOD    
+119000  2011-11-23  ( 3.61 )  IT  full    GOOD    
+119001  2011-11-24  ( 0.02 )  xx  partial FAULTY  short, failed, 
+119002  2011-11-24  ( 0.65 )  IT  partial GOOD    
+119003  2011-11-24  ( 0.63 )  IT  partial GOOD    
+119004  2011-11-24  ( 8.00 )  IT  full    GOOD    
+119005  2011-11-24  ( 8.00 )  IT  full    GOOD    
+119006  2011-11-24  ( 7.01 )  IT  full    GOOD    zombies, 
+119007  2011-11-25  ( 0.90 )  IT  partial GOOD    
+119008  2011-11-25  ( 0.60 )  IT  partial FAULTY  failed, 
+119009  2011-11-25  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119010  2011-11-25  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119011  2011-11-25  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119012  2011-11-25  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119013  2011-11-25  ( 8.00 )  IT  full    GOOD    
+119014  2011-11-25  ( 8.00 )  IT  full    GOOD    
+119015  2011-11-25  ( 4.14 )  IT  full    GOOD    
+119016  2011-11-25  ( 8.00 )  IT  full    GOOD    
+119017  2011-11-26  ( 8.00 )  IT  full    GOOD    
+119018  2011-11-26  ( 8.00 )  IT  full    GOOD    
+119019  2011-11-26  ( 8.00 )  IT  full    GOOD    
+119020  2011-11-27  ( 8.00 )  IT  full    GOOD    
+119021  2011-11-27  ( 8.00 )  IT  full    GOOD    
+119022  2011-11-27  ( 4.97 )  IT  full    FAULTY  zombies, failed, 
+119023  2011-11-28  ( 8.00 )  IT  full    GOOD    
+119024  2011-11-28  ( 6.66 )  Ix  full    FAULTY  run coordinator bad I3, run coordinator bad IT, zombies, failed, 
+119025  2011-11-28  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119026  2011-11-28  ( 8.00 )  IT  full    GOOD    
+119027  2011-11-29  ( 8.00 )  IT  full    GOOD    
+119028  2011-11-29  ( 8.00 )  IT  full    GOOD    
+119029  2011-11-29  ( 2.54 )  IT  full    GOOD    
+119030  2011-11-29  ( 7.01 )  IT  partial GOOD    
+119031  2011-11-30  ( 8.00 )  IT  full    GOOD    
+119032  2011-11-30  ( 7.68 )  IT  full    GOOD    
+119033  2011-11-30  ( 2.84 )  IT  partial GOOD    
+119034  2011-11-30  ( 8.00 )  IT  partial GOOD    
+119035  2011-12-01  ( 0.04 )  xx  partial FAULTY  short, low rate, 
+119036  2011-12-01  ( 8.00 )  IT  partial GOOD    
+119037  2011-12-01  ( 6.14 )  IT  partial GOOD    
+119038  2011-12-01  ( 0.31 )  Ix  partial FAULTY  failed    
+119039  2011-12-01  ( 2.03 )  IT  partial GOOD    
+119040  2011-12-01  ( 2.74 )  IT  partial GOOD    
+119041  2011-12-02  ( 8.00 )  IT  full    GOOD    
+119042  2011-12-02  ( 8.00 )  IT  full    GOOD    
+119043  2011-12-02  ( 8.00 )  IT  full    GOOD    
+119044  2011-12-03  ( 8.00 )  IT  full    GOOD    
+119045  2011-12-03  ( 8.00 )  IT  full    GOOD    
+119046  2011-12-03  ( 6.71 )  IT  full    GOOD    
+119047  2011-12-04  ( 3.58 )  IT  partial GOOD    
+119048  2011-12-04  ( 4.34 )  IT  full    FAULTY  zombies, failed, 
+119049  2011-12-04  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119050  2011-12-04  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119051  2011-12-04  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119052  2011-12-04  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119053  2011-12-04  ( 3.50 )  IT  partial GOOD    
+119054  2011-12-04  ( 8.00 )  IT  full    GOOD    
+119055  2011-12-04  ( 4.72 )  IT  full    FAULTY  failed, 
+119056  2011-12-05  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119057  2011-12-05  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119058  2011-12-05  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119059  2011-12-05  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119060  2011-12-05  ( 0.88 )  IT  partial FAULTY  zombies, failed, 
+119061  2011-12-05  ( 0.68 )  IT  partial GOOD    
+119062  2011-12-05  ( 0.20 )  Ix  partial GOOD    
+119063  2011-12-05  ( 8.00 )  IT  full    GOOD    
+119064  2011-12-05  ( 7.89 )  IT  full    FAULTY  failed, 
+119065  2011-12-05  ( 8.00 )  IT  full    GOOD    
+119066  2011-12-06  ( 8.00 )  IT  full    GOOD    
+119067  2011-12-06  ( 8.00 )  IT  full    GOOD    
+119068  2011-12-06  ( 5.54 )  IT  full    GOOD    
+119069  2011-12-07  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+119070  2011-12-07  ( 0.0 )   xx  full    FAULTY  short, test, low rate, 
+119071  2011-12-07  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+119072  2011-12-07  ( 0.0 )   xx  full    FAULTY  short, test, low rate, 
+119073  2011-12-07  ( 8.00 )  IT  full    FAULTY  test, 
+119074  2011-12-07  ( 0.30 )  Ix  full    FAULTY  test, 
+119075  2011-12-07  ( 0.05 )  xx  full    FAULTY  short, test, zombies, low rate, 
+119076  2011-12-07  ( 0.05 )  xx  full    FAULTY  short, test, zombies, low rate, 
+119077  2011-12-07  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+119078  2011-12-07  ( 0.05 )  xx  full    FAULTY  short, test, zombies, low rate, 
+119079  2011-12-07  ( 0.05 )  xx  full    FAULTY  short, test, zombies, low rate, 
+119080  2011-12-07  ( 0.06 )  xx  full    FAULTY  short, test, low rate, 
+119081  2011-12-07  ( 0.13 )  xx  full    FAULTY  short, test, zombies, low rate, 
+119082  2011-12-07  ( 0.12 )  xx  full    FAULTY  short, test, zombies, low rate, 
+119083  2011-12-07  ( 0.02 )  xx  full    FAULTY  short, test, 
+119084  2011-12-07  ( 3.76 )  IT  full    FAULTY  zombies, failed, 
+119085  2011-12-07  ( 7.11 )  IT  full    GOOD    
+119086  2011-12-07  ( 1.03 )  IT  partial GOOD    low rate, 
+119087  2011-12-07  ( 1.29 )  IT  partial GOOD    low rate, 
+119088  2011-12-08  ( 0.50 )  IT  full    FAULTY  light, 
+119089  2011-12-08  ( 0.08 )  xx  full    FAULTY  light, short, low rate, 
+119090  2011-12-08  ( 1.93 )  IT  full    GOOD    
+119091  2011-12-08  ( 0.53 )  IT  full    FAULTY  light, zombies, low rate, 
+119092  2011-12-08  ( 0.03 )  xx  full    FAULTY  light, short, 
+119093  2011-12-08  ( 0.79 )  IT  full    GOOD    
+119094  2011-12-08  ( 0.09 )  xx  full    FAULTY  short, test, 
+119095  2011-12-08  ( 0.11 )  xx  full    FAULTY  short, test, 
+119096  2011-12-08  ( 8.00 )  IT  full    GOOD    
+119097  2011-12-08  ( 8.00 )  IT  full    GOOD    
+119098  2011-12-08  ( 8.00 )  IT  full    GOOD    
+119099  2011-12-09  ( 2.38 )  IT  full    GOOD    
+119100  2011-12-09  ( 0.81 )  IT  partial GOOD    
+119101  2011-12-09  ( 8.00 )  IT  full    GOOD    
+119102  2011-12-09  ( 8.00 )  IT  full    GOOD    
+119103  2011-12-09  ( 1.92 )  IT  full    FAULTY  failed, 
+119104  2011-12-10  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119105  2011-12-10  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119106  2011-12-10  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119107  2011-12-10  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119108  2011-12-10  ( 1.17 )  IT  partial GOOD    
+119109  2011-12-10  ( 8.00 )  IT  full    GOOD    
+119110  2011-12-10  ( 8.00 )  IT  full    GOOD    
+119111  2011-12-10  ( 2.80 )  IT  full    FAULTY  failed, 
+119112  2011-12-10  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119113  2011-12-10  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119114  2011-12-10  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119115  2011-12-10  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119116  2011-12-10  ( 0.48 )  Ix  partial GOOD    
+119117  2011-12-10  ( 8.00 )  IT  full    GOOD    
+119118  2011-12-11  ( 8.00 )  IT  full    GOOD    
+119119  2011-12-11  ( 8.00 )  IT  full    GOOD    
+119120  2011-12-11  ( 8.00 )  IT  full    GOOD    
+119121  2011-12-12  ( 1.09 )  IT  full    FAULTY  zombies, failed, 
+119122  2011-12-12  ( 8.00 )  IT  full    GOOD    
+119123  2011-12-12  ( 8.00 )  IT  full    GOOD    
+119124  2011-12-13  ( 8.00 )  IT  full    GOOD    
+119125  2011-12-13  ( 8.00 )  IT  full    GOOD    
+119126  2011-12-13  ( 8.00 )  IT  full    GOOD    
+119127  2011-12-14  ( 0.01 )  xx  full    FAULTY  short, low rate, failed, 
+119128  2011-12-14  ( 0.03 )  xx  full    FAULTY  short, low rate, failed, 
+119129  2011-12-14  ( 8.00 )  IT  full    GOOD    
+119130  2011-12-14  ( 0.01 )  xx  full    FAULTY  short, low rate, failed, 
+119131  2011-12-14  ( 8.00 )  IT  full    GOOD    
+119132  2011-12-14  ( 8.00 )  IT  full    GOOD    
+119133  2011-12-15  ( 8.00 )  IT  full    GOOD    
+119134  2011-12-15  ( 8.00 )  IT  full    GOOD    
+119135  2011-12-15  ( 8.00 )  IT  full    GOOD    
+119136  2011-12-16  ( 8.00 )  IT  full    GOOD    
+119137  2011-12-16  ( 8.00 )  IT  full    GOOD    
+119138  2011-12-16  ( 2.75 )  IT  full    GOOD    
+119139  2011-12-16  ( 0.4 )   Ix  full    FAULTY  light, 
+119140  2011-12-16  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+119141  2011-12-16  ( 8.00 )  IT  full    GOOD    
+119142  2011-12-17  ( 8.00 )  IT  full    GOOD    
+119143  2011-12-17  ( 1.65 )  IT  full    FAULTY  zombies, failed, 
+119144  2011-12-17  ( 8.00 )  IT  full    GOOD    
+119145  2011-12-17  ( 8.00 )  IT  full    GOOD    
+119146  2011-12-18  ( 8.00 )  IT  full    GOOD    
+119147  2011-12-18  ( 7.92 )  IT  full    GOOD    
+119148  2011-12-18  ( 8.00 )  IT  full    GOOD    
+119149  2011-12-19  ( 8.00 )  IT  full    GOOD    
+119150  2011-12-19  ( 3.78 )  IT  full    GOOD    
+119151  2011-12-19  ( 2.99 )  IT  full    GOOD    
+119152  2011-12-19  ( 1.22 )  IT  partial GOOD    
+119153  2011-12-19  ( 8.00 )  IT  full    GOOD    
+119154  2011-12-20  ( 8.00 )  IT  full    GOOD    
+119155  2011-12-20  ( 8.00 )  IT  full    GOOD    
+119156  2011-12-20  ( 3.17 )  IT  full    GOOD    
+119157  2011-12-21  ( 0.62 )  IT  partial GOOD    
+119158  2011-12-21  ( 0.30 )  Ix  full    GOOD    
+119159  2011-12-21  ( 2.44 )  IT  partial GOOD    
+119160  2011-12-21  ( 0.28 )  Ix  partial GOOD    
+119161  2011-12-21  ( 0.35 )  Ix  partial GOOD    
+119162  2011-12-21  ( 0.21 )  Ix  partial GOOD    
+119163  2011-12-21  ( 0.67 )  IT  partial GOOD    
+119164  2011-12-21  ( 8.00 )  IT  full    GOOD    
+119165  2011-12-21  ( 8.00 )  IT  full    GOOD    
+119166  2011-12-21  ( 8.00 )  IT  full    GOOD    
+119167  2011-12-22  ( 8.00 )  IT  full    GOOD    
+119168  2011-12-22  ( 8.00 )  IT  full    GOOD    
+119169  2011-12-22  ( 8.00 )  IT  full    GOOD    
+119170  2011-12-23  ( 1.88 )  IT  full    GOOD    
+119171  2011-12-23  ( 8.00 )  IT  full    GOOD    
+119172  2011-12-23  ( 8.00 )  IT  full    GOOD    
+119173  2011-12-23  ( 8.00 )  IT  full    GOOD    
+119174  2011-12-24  ( 8.00 )  IT  full    GOOD    
+119175  2011-12-24  ( 8.00 )  IT  full    GOOD    
+119176  2011-12-25  ( 8.00 )  IT  full    GOOD    
+119177  2011-12-25  ( 8.00 )  IT  full    GOOD    
+119178  2011-12-25  ( 8.00 )  IT  full    GOOD    
+119179  2011-12-26  ( 4.32 )  IT  full    FAULTY  zombies, failed, 
+119180  2011-12-26  ( 8.00 )  IT  full    GOOD    
+119181  2011-12-26  ( 8.00 )  IT  full    GOOD    
+119182  2011-12-26  ( 4.70 )  IT  full    FAULTY  failed, 
+119183  2011-12-27  ( 3.71 )  IT  full    FAULTY  failed, 
+119184  2011-12-27  ( 0.02 )  xx  full    FAULTY  short, low rate, failed, 
+119185  2011-12-27  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119186  2011-12-27  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119187  2011-12-27  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119188  2011-12-27  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119189  2011-12-27  ( 8.00 )  IT  full    GOOD    
+119190  2011-12-27  ( 8.00 )  IT  full    GOOD    
+119191  2011-12-27  ( 2.59 )  IT  full    GOOD    
+119192  2011-12-28  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119193  2011-12-28  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119194  2011-12-28  ( 0.88 )  IT  partial FAULTY  DST headers missing   
+119195  2011-12-28  ( 8.00 )  IT  full    GOOD    
+119196  2011-12-28  ( 8.00 )  IT  full    GOOD    
+119197  2011-12-28  ( 5.77 )  IT  full    FAULTY  failed, 
+119198  2011-12-28  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119199  2011-12-28  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119200  2011-12-28  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119201  2011-12-28  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119202  2011-12-28  ( 2.04 )  IT  partial GOOD    zombies, 
+119203  2011-12-29  ( 8.00 )  IT  full    GOOD    
+119204  2011-12-29  ( 8.00 )  IT  full    GOOD    
+119205  2011-12-29  ( 7.62 )  IT  full    FAULTY  zombies, failed, 
+119206  2011-12-30  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119207  2011-12-30  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119208  2011-12-30  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119209  2011-12-30  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119210  2011-12-30  ( 0.38 )  Ix  partial GOOD    
+119211  2011-12-30  ( 0.68 )  IT  full    FAULTY  zombies, failed, 
+119212  2011-12-30  ( 8.00 )  IT  full    GOOD    
+119213  2011-12-30  ( 8.00 )  IT  full    GOOD    
+119214  2011-12-30  ( 8.00 )  IT  full    GOOD    
+119215  2011-12-31  ( 0.02 )  xx  full    FAULTY  short, 
+119216  2011-12-31  ( 8.00 )  IT  full    GOOD    
+119217  2011-12-31  ( 8.00 )  IT  full    GOOD    
+119218  2011-12-31  ( 0.02 )  xx  full    FAULTY  short, 
+119219  2011-12-31  ( 5.53 )  IT  full    GOOD    
+119220  2012-01-01  ( 8.00 )  Ix  full    FAULTY  run coordinator bad I3, run coordinator bad IT, 
+119221  2012-01-01  ( 8.00 )  IT  full    GOOD    
+119222  2012-01-01  ( 3.93 )  IT  full    GOOD    zombies, 
+119223  2012-01-01  ( 0.85 )  IT  full    FAULTY  light, failed, 
+119224  2012-01-01  ( 0.04 )  xx  full    FAULTY  light, short, low rate, 
+119225  2012-01-01  ( 0.02 )  xx  full    FAULTY  light, short, low rate, 
+119226  2012-01-01  ( 0.02 )  xx  full    FAULTY  light, short, low rate, 
+119228  2012-01-01  ( 0.02 )  xx  full    FAULTY  short, zombies, low rate, 
+119229  2012-01-01  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119230  2012-01-01  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119231  2012-01-01  ( 0.05 )  xx  full    FAULTY  short, low rate, 
+119232  2012-01-01  ( 0.02 )  xx  partial FAULTY  short, zombies, low rate, 
+119233  2012-01-01  ( 0.02 )  xx  partial FAULTY  short, zombies, low rate, 
+119234  2012-01-01  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+119235  2012-01-01  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119236  2012-01-01  ( 0.04 )  xx  partial FAULTY  short, low rate, 
+119237  2012-01-01  ( 0.02 )  xx  partial FAULTY  short, zombies, low rate, 
+119238  2012-01-01  ( 0.02 )  xx  partial FAULTY  short, zombies, low rate, 
+119239  2012-01-01  ( 0.02 )  xx  partial FAULTY  short, zombies, low rate, 
+119240  2012-01-01  ( 0.05 )  xx  partial FAULTY  short, zombies, low rate, 
+119241  2012-01-01  ( 0.13 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119242  2012-01-01  ( 0.07 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119243  2012-01-01  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119244  2012-01-01  ( 0.01 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119245  2012-01-01  ( 0.02 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119246  2012-01-01  ( 0.06 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119247  2012-01-01  ( 0.09 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119248  2012-01-01  ( 0.03 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119249  2012-01-01  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119250  2012-01-01  ( 0.00 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119251  2012-01-01  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119252  2012-01-01  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119253  2012-01-01  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119254  2012-01-01  ( 0.03 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119255  2012-01-02  ( 0.00 )  xx  partial FAULTY  short, low rate, 
+119256  2012-01-02  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119257  2012-01-02  ( 0.00 )  xx  partial FAULTY  short, low rate, 
+119258  2012-01-02  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119260  2012-01-02  ( 0.00 )  xx  partial FAULTY  short, low rate, 
+119261  2012-01-02  ( 0.00 )  xx  partial FAULTY  short, low rate, 
+119262  2012-01-02  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119263  2012-01-02  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119264  2012-01-02  ( 0.00 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119265  2012-01-02  ( 0.02 )  xx  partial FAULTY  short, zombies, low rate, 
+119266  2012-01-02  ( 0.04 )  xx  partial FAULTY  short, low rate, 
+119267  2012-01-02  ( 0.04 )  xx  partial FAULTY  short, low rate, 
+119268  2012-01-02  ( 0.04 )  xx  partial FAULTY  short, low rate, 
+119269  2012-01-02  ( 0.07 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119270  2012-01-02  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119271  2012-01-02  ( 0.00 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119272  2012-01-02  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119273  2012-01-02  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119274  2012-01-02  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119275  2012-01-02  ( 0.04 )  xx  partial FAULTY  short, low rate, 
+119276  2012-01-02  ( 0.02 )  xx  partial FAULTY  short, zombies, low rate, 
+119277  2012-01-02  ( 0.03 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, zombies, low rate, 
+119278  2012-01-02  ( 0.01 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119279  2012-01-02  ( 0.05 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119280  2012-01-02  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119281  2012-01-02  ( 0.04 )  xx  partial FAULTY  short, low rate, 
+119282  2012-01-02  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119283  2012-01-02  ( 0.03 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119284  2012-01-02  ( 0.00 )  xx  partial FAULTY  short, low rate, 
+119285  2012-01-02  ( 0.19 )  Ix  partial FAULTY  run coordinator bad I3, run coordinator bad IT, low rate, 
+119286  2012-01-02  ( 0.18 )  Ix  partial FAULTY  run coordinator bad I3, run coordinator bad IT, low rate, 
+119287  2012-01-02  ( 0.05 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119288  2012-01-02  ( 0.02 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, zombies, low rate, 
+119289  2012-01-02  ( 0.01 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119290  2012-01-02  ( 0.04 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, low rate, 
+119291  2012-01-02  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119292  2012-01-02  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119293  2012-01-02  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119294  2012-01-02  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119295  2012-01-02  ( 0.03 )  xx  partial FAULTY  short, zombies, low rate, 
+119296  2012-01-02  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+119297  2012-01-02  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119298  2012-01-02  ( 0.05 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, zombies, low rate, 
+119299  2012-01-02  ( 0.00 )  xx  partial FAULTY  short, low rate, 
+119300  2012-01-02  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119301  2012-01-02  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119302  2012-01-02  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119303  2012-01-02  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119304  2012-01-02  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119305  2012-01-02  ( 0.34 )  Ix  partial FAULTY  run coordinator bad I3, run coordinator bad IT, low rate, 
+119306  2012-01-02  ( 0.34 )  Ix  partial FAULTY  run coordinator bad I3, run coordinator bad IT, low rate, 
+119307  2012-01-02  ( 0.01 )  xx  partial FAULTY  short, run coordinator bad I3, run coordinator bad IT, zombies, low rate, 
+119308  2012-01-02  ( 0.18 )  Ix  partial FAULTY  run coordinator bad I3, run coordinator bad IT, zombies, low rate, 
+119309  2012-01-02  ( 0.33 )  Ix  partial FAULTY  run coordinator bad I3, run coordinator bad IT, low rate, 
+119310  2012-01-02  ( 0.33 )  Ix  partial GOOD    low rate, 
+119311  2012-01-02  ( 0.17 )  Ix  partial GOOD    low rate, 
+119312  2012-01-02  ( 8.00 )  IT  full    GOOD    
+119313  2012-01-02  ( 5.58 )  IT  full    GOOD    
+119314  2012-01-02  ( 1.50 )  IT  partial FAULTY  light, 
+119315  2012-01-02  ( 8.00 )  IT  full    GOOD    
+119316  2012-01-03  ( 8.00 )  IT  full    GOOD    
+119317  2012-01-03  ( 8.00 )  IT  full    GOOD    
+119318  2012-01-03  ( 8.00 )  IT  full    GOOD    
+119319  2012-01-04  ( 8.00 )  IT  full    GOOD    
+119320  2012-01-04  ( 8.00 )  IT  full    GOOD    
+119321  2012-01-04  ( 5.45 )  IT  full    GOOD    
+119322  2012-01-05  ( 0.19 )  Ix  partial GOOD    
+119323  2012-01-05  ( 8.00 )  IT  full    GOOD    
+119324  2012-01-05  ( 8.00 )  IT  full    GOOD    
+119325  2012-01-05  ( 8.00 )  IT  full    GOOD    
+119326  2012-01-06  ( 8.00 )  IT  full    GOOD    
+119327  2012-01-06  ( 0.02 )  xx  full    FAULTY  short, failed, 
+119328  2012-01-06  ( 8.00 )  IT  full    GOOD    
+119329  2012-01-06  ( 1.04 )  IT  full    FAULTY  zombies, failed, 
+119330  2012-01-06  ( 3.94 )  IT  full    GOOD    
+119331  2012-01-07  ( 0.32 )  Ix  full    FAULTY  light, 
+119332  2012-01-07  ( 0.19 )  Ix  partial GOOD    low rate, 
+119333  2012-01-07  ( 6.02 )  IT  full    FAULTY  zombies, failed, 
+119334  2012-01-07  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119335  2012-01-07  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119336  2012-01-07  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119337  2012-01-07  ( 0.0 )   xx  full    FAULTY  short, low rate, failed, 
+119338  2012-01-07  ( 0.77 )  IT  partial GOOD    
+119339  2012-01-07  ( 8.00 )  IT  full    GOOD    
+119340  2012-01-07  ( 8.00 )  IT  full    GOOD    
+119341  2012-01-08  ( 1.68 )  IT  full    GOOD    
+119342  2012-01-08  ( 7.99 )  IT  full    FAULTY  test, 
+119343  2012-01-08  ( 8.00 )  IT  full    GOOD    
+119344  2012-01-08  ( 8.00 )  IT  full    GOOD    
+119345  2012-01-09  ( 0.59 )  IT  full    GOOD    
+119346  2012-01-09  ( 2.63 )  IT  full    FAULTY  light, 
+119347  2012-01-09  ( 8.00 )  IT  full    GOOD    
+119348  2012-01-09  ( 2.68 )  IT  full    GOOD    
+119349  2012-01-09  ( 8.00 )  IT  full    GOOD    
+119350  2012-01-10  ( 3.78 )  IT  full    GOOD    
+119351  2012-01-10  ( 3.49 )  IT  full    FAULTY  light, 
+119352  2012-01-10  ( 8.00 )  IT  full    GOOD    
+119353  2012-01-10  ( 5.90 )  IT  full    FAULTY  failed, 
+119354  2012-01-10  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119355  2012-01-10  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119356  2012-01-10  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119357  2012-01-10  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119358  2012-01-10  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119359  2012-01-10  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119360  2012-01-10  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+119361  2012-01-10  ( 5.00 )  IT  full    GOOD    
+119362  2012-01-11  ( 3.49 )  IT  full    FAULTY  light, 
+119363  2012-01-11  ( 8.00 )  IT  full    GOOD    
+119364  2012-01-11  ( 8.00 )  IT  full    GOOD    
+119365  2012-01-11  ( 3.21 )  IT  full    GOOD    
+119366  2012-01-12  ( 1.38 )  IT  full    GOOD    
+119367  2012-01-12  ( 0.24 )  Ix  full    FAULTY  light, zombies, low rate, failed, 
+119368  2012-01-12  ( 0.21 )  Ix  full    FAULTY  light, failed, 
+119369  2012-01-12  ( 0.24 )  Ix  full    FAULTY  light, zombies, low rate, failed, 
+119370  2012-01-12  ( 0.02 )  xx  full    FAULTY  light, short, low rate, 
+119371  2012-01-12  ( 0.40 )  Ix  partial GOOD    
+119372  2012-01-12  ( 8.00 )  IT  full    GOOD    
+119373  2012-01-12  ( 8.00 )  IT  full    GOOD    
+119374  2012-01-12  ( 6.36 )  IT  full    GOOD    
+119375  2012-01-13  ( 2.14 )  IT  full    FAULTY  light, 
+119376  2012-01-13  ( 3.75 )  IT  full    GOOD    
+119377  2012-01-13  ( 0.30 )  Ix  full    FAULTY  light, run coordinator bad I3, run coordinator bad IT, zombies, low rate, 
+119378  2012-01-13  ( 8.00 )  IT  full    GOOD    
+119379  2012-01-13  ( 8.00 )  IT  full    GOOD    
+119380  2012-01-14  ( 1.31 )  IT  full    GOOD    
+119381  2012-01-14  ( 3.78 )  IT  full    FAULTY  light, 
+119382  2012-01-14  ( 0.05 )  xx  full    FAULTY  light, short, 
+119383  2012-01-14  ( 8.00 )  IT  full    GOOD    
+119384  2012-01-14  ( 5.97 )  IT  full    GOOD    
+119385  2012-01-14  ( 2.15 )  IT  partial GOOD    
+119386  2012-01-14  ( 1.69 )  IT  partial GOOD    
+119387  2012-01-15  ( 0.92 )  IT  full    GOOD    
+119388  2012-01-15  ( 0.08 )  xx  partial FAULTY  short, low rate, 
+119389  2012-01-15  ( 0.08 )  xx  partial FAULTY  short, low rate, 
+119390  2012-01-15  ( 0.08 )  xx  partial FAULTY  short, low rate, 
+119391  2012-01-15  ( 0.08 )  xx  partial FAULTY  short, low rate, 
+119392  2012-01-15  ( 0.08 )  xx  partial FAULTY  short, low rate, 
+119393  2012-01-15  ( 1.43 )  IT  full    GOOD    
+119394  2012-01-15  ( 0.97 )  IT  full    FAULTY  light, 
+119395  2012-01-15  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+119396  2012-01-15  ( 0.14 )  xx  full    FAULTY  light, short, zombies, low rate, 
+119397  2012-01-15  ( 0.0 )   xx  full    FAULTY  short, low rate, failed, 
+119398  2012-01-15  ( 0.94 )  IT  full    FAULTY  DST headers missing   
+119399  2012-01-15  ( 0.86 )  IT  full    FAULTY  light, 
+119400  2012-01-15  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+119401  2012-01-15  ( 0.53 )  IT  full    FAULTY  light, 
+119402  2012-01-15  ( 0.15 )  xx  full    FAULTY  light, short, 
+119403  2012-01-15  ( 8.00 )  IT  full    GOOD    
+119404  2012-01-15  ( 8.00 )  IT  full    GOOD    
+119405  2012-01-15  ( 1.10 )  IT  full    GOOD    
+119406  2012-01-16  ( 0.60 )  IT  full    FAULTY  light, 
+119407  2012-01-16  ( 0.0 )   xx  full    FAULTY  light, short, low rate, 
+119408  2012-01-16  ( 1.27 )  IT  full    FAULTY  light, 
+119409  2012-01-16  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+119410  2012-01-16  ( 0.09 )  xx  full    FAULTY  light, short, 
+119411  2012-01-16  ( 0.0 )   xx  full    FAULTY  light, short, low rate, 
+119412  2012-01-16  ( 0.02 )  xx  full    FAULTY  light, short, 
+119413  2012-01-16  ( 0.0 )   xx  full    FAULTY  light, short, low rate, 
+119414  2012-01-16  ( 0.02 )  xx  full    FAULTY  light, short, 
+119415  2012-01-16  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+119416  2012-01-16  ( 0.06 )  xx  full    FAULTY  light, short, 
+119417  2012-01-16  ( 3.27 )  IT  full    GOOD    
+119418  2012-01-16  ( 8.00 )  IT  full    FAULTY  test, 
+119419  2012-01-16  ( 8.00 )  IT  full    FAULTY  test, 
+119420  2012-01-16  ( 8.00 )  IT  full    FAULTY  test, 
+119421  2012-01-17  ( 2.71 )  IT  full    GOOD    
+119422  2012-01-17  ( 0.03 )  xx  full    FAULTY  light, short, 
+119423  2012-01-17  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+119424  2012-01-17  ( 8.00 )  IT  full    GOOD    
+119425  2012-01-17  ( 8.00 )  IT  full    GOOD    
+119426  2012-01-18  ( 0.77 )  IT  full    GOOD    
+119427  2012-01-18  ( 0.58 )  IT  full    FAULTY  run coordinator bad I3, 
+119428  2012-01-18  ( 8.00 )  IT  full    FAULTY  run coordinator bad I3, 
+119429  2012-01-18  ( 6.19 )  IT  full    FAULTY  run coordinator bad I3, zombies, failed, 
+119430  2012-01-18  ( 3.64 )  IT  full    GOOD    
+119431  2012-01-18  ( 2.00 )  IT  full    GOOD    
+119432  2012-01-18  ( 2.00 )  IT  full    GOOD    
+119433  2012-01-19  ( 2.00 )  IT  full    GOOD    
+119434  2012-01-19  ( 0.07 )  xx  full    FAULTY  light, short, 
+119435  2012-01-19  ( 0.03 )  xx  full    FAULTY  light, short, 
+119436  2012-01-19  ( 0.01 )  xx  full    FAULTY  light, short, 
+119437  2012-01-19  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+119438  2012-01-19  ( 0.04 )  xx  full    FAULTY  light, short, 
+119439  2012-01-19  ( 0.03 )  xx  full    FAULTY  light, short, 
+119440  2012-01-19  ( 0.04 )  xx  full    FAULTY  light, short, 
+119441  2012-01-19  ( 0.51 )  IT  full    FAULTY  light, 
+119442  2012-01-19  ( 2.47 )  IT  full    FAULTY  failed, 
+119443  2012-01-19  ( 8.00 )  IT  full    GOOD    
+119444  2012-01-19  ( 5.83 )  IT  full    GOOD    
+119445  2012-01-19  ( 0.01 )  xx  full    FAULTY  light, short, 
+119446  2012-01-19  ( 0.01 )  xx  full    FAULTY  light, short, 
+119447  2012-01-19  ( 0.00 )  xx  full    FAULTY  light, short, 
+119448  2012-01-19  ( 0.01 )  xx  full    FAULTY  light, short, 
+119449  2012-01-19  ( 0.04 )  xx  full    FAULTY  light, short, 
+119450  2012-01-19  ( 8.00 )  IT  full    GOOD    
+119451  2012-01-20  ( 8.00 )  IT  full    GOOD    
+119452  2012-01-20  ( 8.00 )  IT  full    GOOD    
+119453  2012-01-20  ( 8.00 )  IT  full    GOOD    
+119454  2012-01-21  ( 8.00 )  IT  full    GOOD    
+119455  2012-01-21  ( 8.00 )  IT  full    GOOD    
+119456  2012-01-21  ( 3.68 )  IT  full    FAULTY  failed, 
+119457  2012-01-22  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119458  2012-01-22  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119459  2012-01-22  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119460  2012-01-22  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119461  2012-01-22  ( 6.61 )  IT  full    FAULTY  failed, 
+119462  2012-01-22  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119463  2012-01-22  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119464  2012-01-22  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119465  2012-01-22  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119466  2012-01-22  ( 0.54 )  IT  partial GOOD    
+119467  2012-01-22  ( 8.00 )  IT  full    GOOD    
+119468  2012-01-22  ( 8.00 )  IT  full    GOOD    
+119469  2012-01-23  ( 8.00 )  IT  full    GOOD    
+119470  2012-01-23  ( 8.00 )  IT  full    GOOD    
+119471  2012-01-23  ( 8.00 )  IT  full    GOOD    
+119472  2012-01-24  ( 8.00 )  IT  full    GOOD    
+119473  2012-01-24  ( 8.00 )  IT  full    GOOD    
+119474  2012-01-24  ( 8.00 )  IT  full    GOOD    
+119475  2012-01-25  ( 8.00 )  IT  full    GOOD    
+119476  2012-01-25  ( 8.00 )  IT  full    GOOD    
+119477  2012-01-25  ( 8.00 )  IT  full    GOOD    
+119478  2012-01-26  ( 3.42 )  IT  full    FAULTY  zombies, failed, 
+119479  2012-01-26  ( 0.33 )  Ix  full    FAULTY  zombies, failed, 
+119480  2012-01-26  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119481  2012-01-26  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119482  2012-01-26  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119483  2012-01-26  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119484  2012-01-26  ( 0.34 )  Ix  partial GOOD    
+119485  2012-01-26  ( 1.18 )  IT  full    GOOD    
+119486  2012-01-26  ( 0.56 )  IT  full    FAULTY  light, 
+119487  2012-01-26  ( 0.01 )  xx  full    FAULTY  light, short, 
+119488  2012-01-26  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+119489  2012-01-26  ( 8.00 )  IT  full    GOOD    
+119490  2012-01-26  ( 8.00 )  IT  full    GOOD    
+119491  2012-01-27  ( 0.21 )  Ix  full    FAULTY  zombies, low rate, failed, 
+119492  2012-01-27  ( 8.00 )  IT  full    GOOD    
+119493  2012-01-27  ( 8.00 )  IT  full    GOOD    
+119494  2012-01-27  ( 8.00 )  IT  full    GOOD    
+119495  2012-01-28  ( 8.00 )  IT  full    GOOD    
+119496  2012-01-28  ( 8.00 )  IT  full    GOOD    
+119497  2012-01-28  ( 8.00 )  IT  full    GOOD    
+119498  2012-01-29  ( 3.05 )  IT  full    FAULTY  zombies, failed, 
+119499  2012-01-29  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119500  2012-01-29  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119501  2012-01-29  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119502  2012-01-29  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119503  2012-01-29  ( 0.91 )  IT  partial GOOD    low rate, 
+119504  2012-01-29  ( 0.33 )  Ix  partial GOOD    
+119505  2012-01-29  ( 1.56 )  IT  full    GOOD    
+119506  2012-01-29  ( 8.00 )  IT  full    GOOD    
+119507  2012-01-29  ( 8.00 )  IT  full    GOOD    
+119508  2012-01-29  ( 8.00 )  IT  full    GOOD    
+119509  2012-01-30  ( 8.00 )  IT  full    GOOD    
+119510  2012-01-30  ( 8.00 )  IT  full    GOOD    
+119511  2012-01-30  ( 8.00 )  IT  full    GOOD    
+119512  2012-01-31  ( 8.00 )  IT  full    GOOD    
+119513  2012-01-31  ( 8.00 )  IT  full    GOOD    
+119514  2012-01-31  ( 8.00 )  IT  full    GOOD    
+119515  2012-02-01  ( 4.37 )  IT  full    FAULTY  zombies, failed, 
+119516  2012-02-01  ( 8.00 )  IT  full    GOOD    
+119517  2012-02-01  ( 2.81 )  IT  full    GOOD    
+119518  2012-02-01  ( 1.17 )  IT  partial GOOD    
+119519  2012-02-01  ( 0.04 )  xx  full    FAULTY  short, 
+119520  2012-02-01  ( 0.26 )  Ix  partial GOOD    
+119521  2012-02-01  ( 8.00 )  IT  full    GOOD    
+119522  2012-02-02  ( 8.00 )  IT  full    GOOD    
+119523  2012-02-02  ( 8.00 )  IT  full    GOOD    
+119524  2012-02-02  ( 7.19 )  IT  full    FAULTY  failed, 
+119525  2012-02-03  ( 0.02 )  xx  full    FAULTY  short, low rate, failed, 
+119526  2012-02-03  ( 8.00 )  IT  full    GOOD    
+119527  2012-02-03  ( 6.30 )  IT  full    FAULTY  failed, 
+119528  2012-02-03  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119529  2012-02-03  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119530  2012-02-03  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119531  2012-02-03  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119532  2012-02-03  ( 0.04 )  xx  partial FAULTY  short, low rate, 
+119533  2012-02-03  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119534  2012-02-03  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119535  2012-02-03  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119536  2012-02-03  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119537  2012-02-03  ( 0.12 )  xx  partial FAULTY  short, low rate, 
+119538  2012-02-03  ( 0.04 )  xx  partial FAULTY  short, low rate, 
+119539  2012-02-03  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119540  2012-02-03  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119541  2012-02-03  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119542  2012-02-04  ( 0.02 )  xx  partial FAULTY  short, zombies, low rate, 
+119543  2012-02-04  ( 1.23 )  IT  partial GOOD    
+119544  2012-02-04  ( 0.82 )  IT  partial GOOD    
+119545  2012-02-04  ( 8.00 )  IT  full    GOOD    
+119546  2012-02-04  ( 8.00 )  IT  full    GOOD    
+119547  2012-02-04  ( 8.00 )  IT  full    GOOD    
+119548  2012-02-05  ( 8.00 )  IT  full    GOOD    
+119549  2012-02-05  ( 8.00 )  IT  full    GOOD    
+119550  2012-02-05  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119551  2012-02-05  ( 8.00 )  IT  full    GOOD    
+119552  2012-02-06  ( 0.60 )  IT  full    FAULTY  zombies, failed, 
+119553  2012-02-06  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119554  2012-02-06  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119555  2012-02-06  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119556  2012-02-06  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119557  2012-02-06  ( 3.66 )  IT  partial GOOD    
+119558  2012-02-06  ( 8.00 )  IT  full    FAULTY  run coordinator bad I3, 
+119559  2012-02-06  ( 0.02 )  xx  full    FAULTY  short, low rate, failed, 
+119560  2012-02-06  ( 0.02 )  xx  full    FAULTY  short, zombies, low rate, 
+119561  2012-02-06  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119562  2012-02-06  ( 0.05 )  xx  full    FAULTY  short, run coordinator bad I3, low rate, failed, 
+119563  2012-02-06  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119564  2012-02-06  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119565  2012-02-06  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119566  2012-02-06  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119567  2012-02-06  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119568  2012-02-06  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119569  2012-02-06  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119570  2012-02-06  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119571  2012-02-06  ( 0.00 )  xx  partial FAULTY  short, low rate, 
+119572  2012-02-06  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119573  2012-02-06  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119574  2012-02-06  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119575  2012-02-06  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119576  2012-02-06  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119577  2012-02-06  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119578  2012-02-06  ( 0.22 )  Ix  partial GOOD    low rate, 
+119579  2012-02-06  ( 1.16 )  IT  partial GOOD    
+119580  2012-02-06  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119581  2012-02-06  ( 8.00 )  IT  partial GOOD    
+119582  2012-02-07  ( 2.98 )  IT  partial GOOD    zombies, 
+119583  2012-02-07  ( 7.13 )  IT  partial GOOD    
+119584  2012-02-07  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119585  2012-02-07  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119586  2012-02-07  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119587  2012-02-07  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119588  2012-02-07  ( 8.00 )  IT  partial GOOD    
+119589  2012-02-07  ( 0.49 )  Ix  partial GOOD    
+119590  2012-02-07  ( 8.00 )  IT  full    GOOD    
+119591  2012-02-08  ( 8.00 )  IT  full    GOOD    
+119592  2012-02-08  ( 8.00 )  IT  full    GOOD    
+119593  2012-02-08  ( 8.00 )  IT  full    GOOD    
+119594  2012-02-09  ( 8.00 )  IT  full    GOOD    
+119595  2012-02-09  ( 8.00 )  IT  full    GOOD    
+119596  2012-02-09  ( 8.00 )  IT  full    GOOD    
+119597  2012-02-10  ( 8.00 )  IT  full    GOOD    
+119598  2012-02-10  ( 8.00 )  IT  full    GOOD    
+119599  2012-02-10  ( 8.00 )  IT  full    GOOD    
+119600  2012-02-11  ( 8.00 )  IT  full    GOOD    
+119601  2012-02-11  ( 8.00 )  IT  full    GOOD    
+119602  2012-02-11  ( 8.00 )  IT  full    GOOD    
+119603  2012-02-12  ( 8.00 )  IT  full    GOOD    
+119604  2012-02-12  ( 8.00 )  IT  full    GOOD    
+119605  2012-02-12  ( 8.00 )  IT  full    GOOD    
+119606  2012-02-13  ( 8.00 )  IT  full    GOOD    
+119607  2012-02-13  ( 8.00 )  IT  full    GOOD    
+119608  2012-02-13  ( 6.98 )  IT  full    GOOD    
+119609  2012-02-14  ( 5.35 )  Ix  full    FAULTY  test, run coordinator bad I3, run coordinator bad IT, 
+119610  2012-02-14  ( 8.00 )  IT  full    GOOD    
+119611  2012-02-14  ( 5.92 )  IT  full    FAULTY  zombies, failed, 
+119612  2012-02-15  ( 3.37 )  IT  full    FAULTY  failed, 
+119613  2012-02-15  ( 0.69 )  IT  full    FAULTY  failed, 
+119614  2012-02-15  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119615  2012-02-15  ( 0.04 )  xx  full    FAULTY  short, low rate, failed, 
+119616  2012-02-15  ( 0.01 )  xx  full    FAULTY  short, low rate, failed, 
+119617  2012-02-15  ( 0.0 )   xx  full    FAULTY  short, low rate, failed, 
+119618  2012-02-15  ( 0.30 )  Ix  full    FAULTY  failed, 
+119619  2012-02-15  ( 0.10 )  xx  full    FAULTY  short, failed, 
+119620  2012-02-15  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119621  2012-02-15  ( 0.04 )  xx  full    FAULTY  short, low rate, failed, 
+119622  2012-02-15  ( 0.00 )  xx  full    FAULTY  short, low rate, failed, 
+119623  2012-02-15  ( 0.02 )  xx  full    FAULTY  short, low rate, failed, 
+119624  2012-02-15  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119625  2012-02-15  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119626  2012-02-15  ( 0.0 )   xx  full    FAULTY  short, low rate, failed, 
+119627  2012-02-15  ( 8.00 )  IT  partial GOOD    
+119628  2012-02-15  ( 8.00 )  IT  partial GOOD    
+119629  2012-02-15  ( 1.76 )  IT  partial GOOD    
+119630  2012-02-16  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119631  2012-02-16  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119632  2012-02-16  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119633  2012-02-16  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119634  2012-02-16  ( 8.00 )  IT  partial GOOD    
+119635  2012-02-16  ( 1.79 )  IT  partial GOOD    
+119636  2012-02-16  ( 8.00 )  IT  full    GOOD    
+119637  2012-02-16  ( 2.93 )  IT  full    FAULTY  failed, 
+119638  2012-02-16  ( 0.40 )  Ix  full    FAULTY  zombies, failed, 
+119639  2012-02-16  ( 1.50 )  IT  full    FAULTY  zombies, failed, 
+119640  2012-02-16  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119641  2012-02-16  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119642  2012-02-16  ( 0.04 )  xx  partial FAULTY  short, low rate, 
+119643  2012-02-16  ( 0.06 )  xx  partial FAULTY  short, low rate, 
+119644  2012-02-16  ( 2.28 )  IT  partial GOOD    
+119645  2012-02-17  ( 8.00 )  IT  full    GOOD    
+119646  2012-02-17  ( 8.00 )  IT  full    GOOD    
+119647  2012-02-17  ( 4.58 )  IT  full    GOOD    
+119648  2012-02-17  ( 4.84 )  IT  partial FAULTY  light, low rate, 
+119649  2012-02-18  ( 3.95 )  IT  partial FAULTY  light, low rate, 
+119650  2012-02-18  ( 0.64 )  IT  partial GOOD    
+119651  2012-02-18  ( 8.00 )  IT  full    GOOD    
+119652  2012-02-18  ( 8.00 )  IT  full    GOOD    
+119653  2012-02-19  ( 5.05 )  IT  full    FAULTY  zombies, failed, 
+119654  2012-02-19  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119655  2012-02-19  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119656  2012-02-19  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119657  2012-02-19  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119658  2012-02-19  ( 0.20 )  Ix  partial GOOD    
+119659  2012-02-19  ( 8.00 )  IT  full    GOOD    
+119660  2012-02-19  ( 8.00 )  IT  full    GOOD    
+119661  2012-02-19  ( 8.00 )  IT  full    GOOD    
+119662  2012-02-20  ( 8.00 )  IT  full    GOOD    
+119663  2012-02-20  ( 0.99 )  IT  full    FAULTY  failed, 
+119664  2012-02-20  ( 4.41 )  IT  full    FAULTY  zombies, failed, 
+119665  2012-02-20  ( 0.59 )  IT  full    GOOD    
+119666  2012-02-20  ( 0.02 )  xx  full    FAULTY  short, test, low rate, 
+119667  2012-02-20  ( 0.0 )   xx  full    FAULTY  short, test, low rate, 
+119668  2012-02-20  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+119669  2012-02-20  ( 0.57 )  IT  full    GOOD    
+119670  2012-02-20  ( 8.00 )  IT  full    GOOD    
+119671  2012-02-21  ( 8.00 )  IT  full    GOOD    
+119672  2012-02-21  ( 8.00 )  IT  full    GOOD    
+119673  2012-02-21  ( 8.00 )  IT  full    GOOD    
+119674  2012-02-22  ( 8.00 )  IT  full    GOOD    
+119675  2012-02-22  ( 8.00 )  IT  full    GOOD    
+119676  2012-02-22  ( 8.00 )  IT  full    GOOD    
+119677  2012-02-23  ( 8.00 )  IT  full    GOOD    
+119678  2012-02-23  ( 8.00 )  IT  full    GOOD    
+119679  2012-02-23  ( 8.00 )  IT  full    GOOD    
+119680  2012-02-24  ( 5.71 )  IT  full    GOOD    
+119681  2012-02-24  ( 0.50 )  IT  full    FAULTY  test, 
+119682  2012-02-24  ( 0.03 )  xx  full    FAULTY  short, test, 
+119683  2012-02-24  ( 0.62 )  IT  full    FAULTY  test, 
+119684  2012-02-24  ( 2.73 )  IT  full    GOOD    
+119685  2012-02-24  ( 8.00 )  IT  full    GOOD    
+119686  2012-02-24  ( 8.00 )  IT  full    GOOD    
+119687  2012-02-25  ( 8.00 )  IT  full    GOOD    
+119688  2012-02-25  ( 8.00 )  IT  full    GOOD    
+119689  2012-02-25  ( 8.00 )  IT  full    GOOD    
+119690  2012-02-26  ( 0.83 )  IT  full    FAULTY  failed, 
+119691  2012-02-26  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119692  2012-02-26  ( 0.00 )  xx  partial FAULTY  short, low rate, 
+119693  2012-02-26  ( 0.18 )  Ix  partial GOOD    
+119694  2012-02-26  ( 8.00 )  IT  full    GOOD    
+119695  2012-02-26  ( 6.64 )  IT  full    GOOD    
+119696  2012-02-26  ( 0.02 )  xx  partial FAULTY  light, short, low rate, 
+119697  2012-02-26  ( 0.03 )  xx  partial FAULTY  light, short, low rate, 
+119698  2012-02-26  ( 0.03 )  xx  partial FAULTY  light, short, low rate, 
+119699  2012-02-26  ( 0.0 )   xx  partial FAULTY  light, short, low rate, 
+119700  2012-02-26  ( 0.02 )  xx  partial FAULTY  light, short, low rate, 
+119701  2012-02-26  ( 0.03 )  xx  partial FAULTY  light, short, low rate, 
+119702  2012-02-26  ( 0.03 )  xx  partial FAULTY  light, short, low rate, 
+119703  2012-02-26  ( 0.0 )   xx  partial FAULTY  light, short, low rate, 
+119704  2012-02-26  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+119705  2012-02-26  ( 8.00 )  IT  full    GOOD    
+119706  2012-02-27  ( 8.00 )  IT  full    GOOD    
+119707  2012-02-27  ( 8.00 )  IT  full    GOOD    
+119708  2012-02-27  ( 8.00 )  IT  full    GOOD    
+119709  2012-02-28  ( 4.49 )  IT  full    GOOD    
+119710  2012-02-28  ( 0.02 )  xx  full    FAULTY  short, test, low rate, 
+119711  2012-02-28  ( 0.01 )  xx  full    FAULTY  short, test, low rate, 
+119712  2012-02-28  ( 0.0 )   xx  full    FAULTY  short, test, low rate, 
+119713  2012-02-28  ( 3.15 )  IT  full    GOOD    
+119714  2012-02-28  ( 8.00 )  IT  full    GOOD    
+119715  2012-02-28  ( 8.00 )  IT  full    GOOD    
+119716  2012-02-29  ( 4.49 )  IT  full    GOOD    
+119717  2012-02-29  ( 0.06 )  xx  full    FAULTY  short, test, zombies, low rate, 
+119718  2012-02-29  ( 0.06 )  xx  full    FAULTY  short, test, low rate, 
+119719  2012-02-29  ( 0.06 )  xx  full    FAULTY  short, test, low rate, 
+119720  2012-02-29  ( 0.04 )  xx  full    FAULTY  short, test, low rate, 
+119721  2012-02-29  ( 0.01 )  xx  full    FAULTY  short, test, low rate, 
+119722  2012-02-29  ( 0.01 )  xx  full    FAULTY  short, test, low rate, 
+119723  2012-02-29  ( 0.01 )  xx  full    FAULTY  short, test, low rate, 
+119724  2012-02-29  ( 0.0 )   xx  full    FAULTY  short, test, low rate, 
+119725  2012-02-29  ( 0.0 )   xx  full    FAULTY  short, test, low rate, 
+119726  2012-02-29  ( 0.01 )  xx  full    FAULTY  short, test, low rate, 
+119727  2012-02-29  ( 0.0 )   xx  full    FAULTY  short, test, low rate, 
+119728  2012-02-29  ( 0.10 )  xx  full    FAULTY  short, test, low rate, 
+119729  2012-02-29  ( 0.0 )   xx  full    FAULTY  short, test, low rate, 
+119730  2012-02-29  ( 1.53 )  IT  full    GOOD    
+119731  2012-02-29  ( 0.17 )  Ix  full    FAULTY  test, zombies, 
+119732  2012-02-29  ( 0.15 )  xx  full    FAULTY  short, test, zombies, 
+119733  2012-02-29  ( 0.08 )  xx  full    FAULTY  short, test, zombies, low rate, 
+119734  2012-02-29  ( 0.10 )  xx  full    FAULTY  short, test, zombies, 
+119735  2012-02-29  ( 0.09 )  xx  full    FAULTY  short, test, zombies, low rate, 
+119736  2012-02-29  ( 8.00 )  IT  full    GOOD    
+119737  2012-02-29  ( 8.00 )  IT  full    GOOD    
+119738  2012-03-01  ( 8.00 )  IT  full    GOOD    
+119739  2012-03-01  ( 8.00 )  IT  full    GOOD    
+119740  2012-03-01  ( 8.00 )  IT  full    GOOD    
+119741  2012-03-02  ( 8.00 )  IT  full    GOOD    
+119742  2012-03-02  ( 8.00 )  IT  full    GOOD    
+119743  2012-03-02  ( 8.00 )  IT  full    GOOD    
+119744  2012-03-03  ( 8.00 )  IT  full    GOOD    
+119745  2012-03-03  ( 8.00 )  IT  full    GOOD    
+119746  2012-03-03  ( 8.00 )  IT  full    GOOD    
+119747  2012-03-04  ( 8.00 )  IT  full    GOOD    
+119748  2012-03-04  ( 8.00 )  IT  full    GOOD    
+119749  2012-03-04  ( 8.00 )  IT  full    GOOD    
+119750  2012-03-05  ( 8.00 )  IT  full    GOOD    
+119751  2012-03-05  ( 8.00 )  IT  full    GOOD    
+119752  2012-03-05  ( 8.00 )  IT  full    GOOD    
+119753  2012-03-06  ( 8.00 )  IT  full    GOOD    
+119754  2012-03-06  ( 8.00 )  IT  full    GOOD    
+119755  2012-03-06  ( 8.00 )  IT  full    GOOD    
+119756  2012-03-07  ( 8.00 )  IT  full    GOOD    
+119757  2012-03-07  ( 8.00 )  IT  full    GOOD    
+119758  2012-03-07  ( 8.00 )  IT  full    GOOD    
+119759  2012-03-08  ( 8.00 )  IT  full    GOOD    
+119760  2012-03-08  ( 8.00 )  IT  full    GOOD    
+119761  2012-03-08  ( 8.00 )  IT  full    GOOD    
+119762  2012-03-09  ( 8.00 )  IT  full    GOOD    
+119763  2012-03-09  ( 7.47 )  IT  full    GOOD    
+119764  2012-03-09  ( 1.81 )  IT  partial FAULTY  light, 
+119765  2012-03-10  ( 8.00 )  IT  full    GOOD    
+119766  2012-03-10  ( 8.00 )  IT  full    GOOD    
+119767  2012-03-10  ( 8.00 )  IT  full    GOOD    
+119768  2012-03-11  ( 7.94 )  IT  full    GOOD    
+119769  2012-03-11  ( 0.23 )  Ix  partial GOOD    zombies, low rate, 
+119770  2012-03-11  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+119771  2012-03-11  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+119772  2012-03-11  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+119773  2012-03-11  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119774  2012-03-11  ( 1.96 )  IT  partial GOOD    
+119775  2012-03-11  ( 0.01 )  xx  partial FAULTY  short, test, low rate, 
+119776  2012-03-11  ( 0.01 )  xx  partial FAULTY  short, test, low rate, 
+119777  2012-03-11  ( 0.01 )  xx  partial FAULTY  short, test, low rate, 
+119778  2012-03-11  ( 0.0 )   xx  partial FAULTY  short, test, low rate, 
+119779  2012-03-11  ( 0.00 )  xx  partial FAULTY  short, test, low rate, 
+119780  2012-03-11  ( 0.03 )  xx  partial FAULTY  short, test, low rate, 
+119781  2012-03-11  ( 0.0 )   xx  partial FAULTY  short, test, low rate, 
+119782  2012-03-11  ( 0.0 )   xx  partial FAULTY  short, test, low rate, 
+119783  2012-03-11  ( 0.02 )  xx  partial FAULTY  short, test, low rate, 
+119784  2012-03-11  ( 0.0 )   xx  partial FAULTY  short, test, low rate, 
+119785  2012-03-11  ( 0.00 )  xx  partial FAULTY  short, test, low rate, 
+119786  2012-03-11  ( 0.06 )  xx  partial FAULTY  short, test, zombies, low rate, 
+119787  2012-03-11  ( 0.01 )  xx  partial FAULTY  short, test, low rate, 
+119788  2012-03-11  ( 0.01 )  xx  partial FAULTY  short, test, low rate, 
+119789  2012-03-11  ( 0.01 )  xx  partial FAULTY  short, test, low rate, 
+119790  2012-03-11  ( 0.0 )   xx  partial FAULTY  short, test, low rate, 
+119791  2012-03-11  ( 3.15 )  IT  partial FAULTY  test, 
+119792  2012-03-11  ( 0.28 )  Ix  partial FAULTY  test, 
+119793  2012-03-11  ( 0.26 )  Ix  partial FAULTY  test, 
+119794  2012-03-11  ( 7.98 )  IT  partial GOOD    
+119795  2012-03-12  ( 2.46 )  IT  partial GOOD    
+119796  2012-03-12  ( 8.00 )  IT  full    GOOD    
+119797  2012-03-12  ( 0.57 )  IT  full    FAULTY  zombies, failed, 
+119798  2012-03-12  ( 8.00 )  IT  full    GOOD    
+119799  2012-03-12  ( 8.00 )  IT  full    GOOD    
+119800  2012-03-13  ( 1.02 )  IT  full    FAULTY  failed, 
+119801  2012-03-13  ( 8.00 )  IT  full    GOOD    
+119802  2012-03-13  ( 8.00 )  IT  full    GOOD    
+119803  2012-03-13  ( 8.00 )  IT  full    GOOD    
+119804  2012-03-14  ( 2.20 )  IT  full    FAULTY  zombies, failed, 
+119805  2012-03-14  ( 0.04 )  xx  full    FAULTY  short, low rate, failed, 
+119806  2012-03-14  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119807  2012-03-14  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119808  2012-03-14  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119809  2012-03-14  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119810  2012-03-14  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+119811  2012-03-14  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119812  2012-03-14  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119813  2012-03-14  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119814  2012-03-14  ( 0.02 )  xx  full    FAULTY  short, failed, 
+119815  2012-03-14  ( 8.00 )  IT  full    GOOD    
+119816  2012-03-14  ( 8.00 )  IT  full    GOOD    
+119817  2012-03-14  ( 8.00 )  IT  full    GOOD    
+119818  2012-03-15  ( 8.00 )  IT  full    GOOD    
+119819  2012-03-15  ( 8.00 )  IT  full    GOOD    
+119820  2012-03-15  ( 8.00 )  IT  full    GOOD    
+119821  2012-03-16  ( 8.00 )  IT  full    GOOD    
+119822  2012-03-16  ( 8.00 )  IT  full    GOOD    
+119823  2012-03-16  ( 8.00 )  IT  full    GOOD    
+119824  2012-03-17  ( 8.00 )  IT  full    GOOD    
+119825  2012-03-17  ( 8.00 )  IT  full    GOOD    
+119826  2012-03-17  ( 8.00 )  IT  full    GOOD    
+119827  2012-03-18  ( 8.00 )  IT  full    GOOD    
+119828  2012-03-18  ( 8.00 )  IT  full    GOOD    
+119829  2012-03-18  ( 8.00 )  IT  full    GOOD    
+119830  2012-03-19  ( 8.00 )  IT  full    GOOD    
+119831  2012-03-19  ( 5.93 )  IT  full    GOOD    
+119832  2012-03-19  ( 1.66 )  IT  partial GOOD    
+119833  2012-03-19  ( 0.35 )  Ix  partial GOOD    
+119834  2012-03-19  ( 1.08 )  IT  partial GOOD    
+119835  2012-03-20  ( 8.00 )  IT  full    GOOD    
+119836  2012-03-20  ( 8.00 )  IT  full    GOOD    
+119837  2012-03-20  ( 8.00 )  IT  full    GOOD    
+119838  2012-03-21  ( 8.00 )  IT  full    GOOD    
+119839  2012-03-21  ( 8.00 )  IT  full    GOOD    
+119840  2012-03-21  ( 8.00 )  IT  full    GOOD    
+119841  2012-03-22  ( 8.00 )  IT  full    GOOD    
+119842  2012-03-22  ( 8.00 )  IT  full    GOOD    
+119843  2012-03-22  ( 8.00 )  IT  full    GOOD    
+119844  2012-03-23  ( 8.00 )  IT  full    FAULTY  run coordinator bad I3, 
+119845  2012-03-23  ( 0.04 )  xx  full    FAULTY  short, zombies, low rate, failed, 
+119846  2012-03-23  ( 0.04 )  xx  full    FAULTY  short, low rate, 
+119847  2012-03-23  ( 0.04 )  xx  full    FAULTY  short, zombies, low rate, 
+119848  2012-03-23  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119849  2012-03-23  ( 0.04 )  xx  full    FAULTY  short, zombies, low rate, 
+119850  2012-03-23  ( 0.04 )  xx  full    FAULTY  short, zombies, low rate, 
+119851  2012-03-23  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119852  2012-03-23  ( 0.04 )  xx  full    FAULTY  short, low rate, 
+119853  2012-03-23  ( 8.00 )  IT  full    GOOD    
+119854  2012-03-23  ( 2.65 )  IT  full    GOOD    
+119855  2012-03-23  ( 1.14 )  IT  full    GOOD    
+119856  2012-03-23  ( 4.11 )  IT  full    GOOD    
+119857  2012-03-24  ( 0.0 )   xx  full    FAULTY  short, test, low rate, 
+119858  2012-03-24  ( 5.00 )  IT  full    GOOD    
+119859  2012-03-24  ( 8.00 )  IT  full    GOOD    
+119860  2012-03-24  ( 6.55 )  IT  full    GOOD    
+119861  2012-03-24  ( 8.00 )  IT  full    GOOD    
+119862  2012-03-25  ( 8.00 )  IT  full    GOOD    
+119863  2012-03-25  ( 8.00 )  IT  full    GOOD    
+119864  2012-03-25  ( 8.00 )  IT  full    GOOD    
+119865  2012-03-26  ( 8.00 )  IT  full    GOOD    
+119866  2012-03-26  ( 8.00 )  IT  full    GOOD    
+119867  2012-03-26  ( 8.00 )  IT  full    GOOD    
+119868  2012-03-27  ( 8.00 )  IT  full    GOOD    
+119869  2012-03-27  ( 8.00 )  IT  full    GOOD    
+119870  2012-03-27  ( 8.00 )  IT  full    GOOD    
+119871  2012-03-28  ( 3.64 )  IT  full    GOOD    
+119872  2012-03-28  ( 0.24 )  Ix  full    FAULTY  test, zombies, low rate, 
+119873  2012-03-28  ( 2.34 )  IT  full    FAULTY  test, 
+119874  2012-03-28  ( 8.00 )  IT  full    FAULTY  test, 
+119875  2012-03-28  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+119876  2012-03-28  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+119877  2012-03-28  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+119878  2012-03-28  ( 1.38 )  IT  full    FAULTY  test, 
+119879  2012-03-28  ( 8.00 )  IT  full    GOOD    
+119880  2012-03-29  ( 8.00 )  IT  full    GOOD    
+119881  2012-03-29  ( 7.60 )  Ix  full    FAULTY  run coordinator bad I3, run coordinator bad IT, failed, 
+119882  2012-03-29  ( 0.04 )  xx  full    FAULTY  short, low rate, 
+119883  2012-03-29  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+119884  2012-03-29  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119885  2012-03-29  ( 0.05 )  xx  full    FAULTY  short, low rate, 
+119886  2012-03-29  ( 0.04 )  xx  full    FAULTY  short, zombies, low rate, 
+119887  2012-03-29  ( 0.04 )  xx  full    FAULTY  short, low rate, 
+119888  2012-03-29  ( 0.04 )  xx  full    FAULTY  short, low rate, 
+119889  2012-03-29  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119890  2012-03-29  ( 0.04 )  xx  full    FAULTY  short, low rate, 
+119891  2012-03-29  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+119892  2012-03-29  ( 8.00 )  IT  full    GOOD    
+119893  2012-03-30  ( 8.00 )  IT  full    GOOD    
+119894  2012-03-30  ( 8.00 )  IT  full    GOOD    
+119895  2012-03-30  ( 8.00 )  IT  full    GOOD    
+119896  2012-03-31  ( 8.00 )  IT  full    GOOD    
+119897  2012-03-31  ( 8.00 )  IT  full    GOOD    
+119898  2012-03-31  ( 8.00 )  IT  full    GOOD    
+119899  2012-04-01  ( 8.00 )  IT  full    GOOD    
+119900  2012-04-01  ( 8.00 )  IT  full    GOOD    
+119901  2012-04-01  ( 8.00 )  IT  full    GOOD    
+119902  2012-04-02  ( 8.00 )  IT  full    GOOD    
+119903  2012-04-02  ( 8.00 )  IT  full    GOOD    
+119904  2012-04-02  ( 0.78 )  IT  full    GOOD    
+119905  2012-04-02  ( 1.21 )  IT  partial GOOD    
+119906  2012-04-03  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119907  2012-04-03  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119908  2012-04-03  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119909  2012-04-03  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119910  2012-04-03  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119911  2012-04-03  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119912  2012-04-03  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119913  2012-04-03  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+119914  2012-04-03  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119915  2012-04-03  ( 0.03 )  xx  partial FAULTY  short, zombies, low rate, 
+119916  2012-04-03  ( 0.31 )  Ix  partial FAULTY  run coordinator bad I3, zombies, low rate, 
+119917  2012-04-03  ( 0.26 )  Ix  partial FAULTY  run coordinator bad I3, run coordinator bad IT, low rate, 
+119918  2012-04-03  ( 0.02 )  xx  partial FAULTY  short, low rate, 
+119919  2012-04-03  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+119920  2012-04-03  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+119921  2012-04-03  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+119922  2012-04-03  ( 0.46 )  Ix  partial GOOD    
+119923  2012-04-03  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+119924  2012-04-03  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+119925  2012-04-03  ( 0.47 )  Ix  partial GOOD    
+119926  2012-04-03  ( 2.23 )  IT  partial GOOD    
+119927  2012-04-03  ( 0.71 )  IT  partial GOOD    
+119928  2012-04-03  ( 8.00 )  IT  full    GOOD    
+119929  2012-04-03  ( 5.15 )  IT  full    GOOD    
+119930  2012-04-03  ( 8.00 )  IT  full    FAULTY  test, 
+119931  2012-04-04  ( 8.00 )  IT  full    FAULTY  test, 
+119932  2012-04-04  ( 8.00 )  IT  full    FAULTY  test, 
+119933  2012-04-04  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+119934  2012-04-04  ( 0.00 )  xx  full    FAULTY  light, short, low rate, 
+119935  2012-04-04  ( 0.03 )  xx  full    FAULTY  light, short, 
+119936  2012-04-04  ( 0.68 )  IT  full    FAULTY  test, 
+119937  2012-04-04  ( 8.00 )  IT  full    GOOD    
+119938  2012-04-05  ( 8.00 )  IT  full    GOOD    
+119939  2012-04-05  ( 8.00 )  IT  full    GOOD    
+119940  2012-04-05  ( 8.00 )  IT  full    GOOD    
+119941  2012-04-06  ( 8.00 )  IT  full    GOOD    
+119942  2012-04-06  ( 8.00 )  IT  full    GOOD    
+119943  2012-04-06  ( 8.00 )  IT  full    GOOD    
+119944  2012-04-07  ( 8.02 )  IT  full    GOOD    
+119945  2012-04-07  ( 8.00 )  IT  full    GOOD    
+119946  2012-04-07  ( 8.00 )  IT  full    GOOD    
+119947  2012-04-08  ( 8.00 )  IT  full    GOOD    
+119948  2012-04-08  ( 8.00 )  IT  full    GOOD    
+119949  2012-04-08  ( 7.99 )  IT  full    GOOD    
+119950  2012-04-09  ( 8.00 )  IT  full    GOOD    
+119951  2012-04-09  ( 8.00 )  IT  full    GOOD    
+119952  2012-04-09  ( 8.00 )  IT  full    GOOD    
+119953  2012-04-10  ( 8.00 )  IT  full    GOOD    
+119954  2012-04-10  ( 6.31 )  IT  full    GOOD    
+119955  2012-04-10  ( 4.00 )  IT  full    GOOD    
+119956  2012-04-11  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+119957  2012-04-11  ( 0.06 )  xx  full    FAULTY  short, test, low rate, 
+119958  2012-04-11  ( 0.04 )  xx  full    FAULTY  short, test, low rate, 
+119959  2012-04-11  ( 8.00 )  IT  full    GOOD    
+119960  2012-04-11  ( 1.33 )  IT  full    GOOD    
+119961  2012-04-11  ( 8.00 )  IT  full    GOOD    
+119962  2012-04-11  ( 2.02 )  IT  full    GOOD    
+119963  2012-04-11  ( 0.50 )  IT  full    FAULTY  test, 
+119964  2012-04-11  ( 0.50 )  IT  full    FAULTY  test, 
+119965  2012-04-11  ( 8.00 )  IT  full    GOOD    
+119966  2012-04-12  ( 8.00 )  IT  full    GOOD    
+119967  2012-04-12  ( 8.00 )  IT  full    GOOD    
+119968  2012-04-12  ( 8.00 )  IT  full    GOOD    
+119969  2012-04-13  ( 8.00 )  IT  full    GOOD    
+119970  2012-04-13  ( 8.00 )  IT  full    GOOD    
+119971  2012-04-13  ( 5.29 )  IT  full    GOOD    
+119972  2012-04-14  ( 5.32 )  IT  full    GOOD    
+119973  2012-04-14  ( 0.50 )  IT  full    FAULTY  test, 
+119974  2012-04-14  ( 0.50 )  IT  full    FAULTY  test, 
+119975  2012-04-14  ( 8.00 )  IT  full    GOOD    
+119976  2012-04-14  ( 8.00 )  IT  full    GOOD    
+119977  2012-04-15  ( 8.00 )  IT  full    GOOD    
+119978  2012-04-15  ( 8.00 )  IT  full    GOOD    
+119979  2012-04-15  ( 8.00 )  IT  full    GOOD    
+119980  2012-04-16  ( 8.00 )  IT  full    GOOD    
+119981  2012-04-16  ( 0.83 )  IT  full    GOOD    
+119982  2012-04-16  ( 8.00 )  IT  full    FAULTY  test, 
+119983  2012-04-16  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+119984  2012-04-16  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+119985  2012-04-16  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+119986  2012-04-16  ( 8.00 )  IT  full    GOOD    
+119987  2012-04-17  ( 8.00 )  IT  full    GOOD    
+119988  2012-04-17  ( 8.00 )  IT  full    FAULTY  run coordinator bad I3, zombies, 
+119989  2012-04-17  ( 4.27 )  IT  full    GOOD    
+119990  2012-04-17  ( 1.45 )  IT  partial GOOD    
+119991  2012-04-18  ( 1.56 )  IT  partial GOOD    
+119992  2012-04-18  ( 8.00 )  IT  full    GOOD    
+119993  2012-04-18  ( 8.00 )  IT  full    GOOD    
+119994  2012-04-18  ( 8.00 )  IT  full    GOOD    
+119995  2012-04-19  ( 8.00 )  IT  full    GOOD    
+119996  2012-04-19  ( 8.00 )  IT  full    GOOD    
+119997  2012-04-19  ( 8.00 )  IT  full    GOOD    
+119998  2012-04-20  ( 6.91 )  IT  full    GOOD    
+119999  2012-04-20  ( 0.50 )  IT  full    FAULTY  test, 
+120000  2012-04-20  ( 0.01 )  xx  full    FAULTY  short, test, low rate, 
+120001  2012-04-20  ( 8.00 )  IT  full    GOOD    
+120002  2012-04-20  ( 8.00 )  IT  full    GOOD    
+120003  2012-04-21  ( 8.00 )  IT  full    GOOD    
+120004  2012-04-21  ( 8.00 )  IT  full    GOOD    
+120005  2012-04-21  ( 1.67 )  IT  full    FAULTY  zombies, failed, 
+120006  2012-04-21  ( 8.00 )  IT  full    GOOD    
+120007  2012-04-22  ( 8.00 )  IT  full    GOOD    
+120008  2012-04-22  ( 8.00 )  IT  full    GOOD    
+120009  2012-04-22  ( 8.00 )  IT  full    GOOD    
+120010  2012-04-23  ( 8.00 )  IT  full    GOOD    
+120011  2012-04-23  ( 8.00 )  IT  full    GOOD    
+120012  2012-04-23  ( 8.00 )  IT  full    GOOD    
+120013  2012-04-24  ( 8.00 )  IT  full    GOOD    
+120014  2012-04-24  ( 8.00 )  IT  full    GOOD    
+120015  2012-04-24  ( 3.33 )  IT  full    FAULTY  zombies, failed, 
+120016  2012-04-24  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+120017  2012-04-24  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+120018  2012-04-24  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+120019  2012-04-24  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+120020  2012-04-24  ( 0.28 )  Ix  partial GOOD    
+120021  2012-04-24  ( 0.35 )  Ix  partial GOOD    
+120022  2012-04-24  ( 0.93 )  IT  partial GOOD    
+120023  2012-04-25  ( 8.00 )  IT  full    GOOD    
+120024  2012-04-25  ( 8.00 )  IT  full    GOOD    
+120025  2012-04-25  ( 8.00 )  IT  full    GOOD    
+120026  2012-04-26  ( 8.00 )  IT  full    GOOD    
+120027  2012-04-26  ( 1.32 )  IT  full    GOOD    
+120028  2012-04-26  ( 8.00 )  IT  full    GOOD  IC86-II   
+120029  2012-04-26  ( 8.00 )  IT  full    GOOD  IC86-II   
+120030  2012-04-27  ( 8.00 )  IT  full    GOOD  IC86-II   
+120031  2012-04-27  ( 0.90 )  IT  full    FAULTY  test, 
+120032  2012-04-27  ( 8.00 )  IT  full    GOOD    
+120033  2012-04-27  ( 8.00 )  IT  full    GOOD    
+120034  2012-04-28  ( 8.00 )  IT  full    GOOD    
+120035  2012-04-28  ( 8.00 )  IT  full    GOOD    
+120036  2012-04-28  ( 8.00 )  IT  full    GOOD    
+120037  2012-04-29  ( 8.00 )  IT  full    GOOD    
+120038  2012-04-29  ( 8.00 )  IT  full    GOOD    
+120039  2012-04-29  ( 8.00 )  IT  full    GOOD    
+120040  2012-04-30  ( 8.00 )  IT  full    GOOD    
+120041  2012-04-30  ( 8.00 )  IT  full    GOOD    
+120042  2012-04-30  ( 8.00 )  IT  full    GOOD    
+120043  2012-05-01  ( 0.00 )  xx  full    FAULTY  short, low rate, failed, 
+120044  2012-05-01  ( 8.00 )  IT  full    GOOD    
+120045  2012-05-01  ( 8.00 )  IT  full    GOOD    
+120046  2012-05-01  ( 8.00 )  IT  full    GOOD    
+120047  2012-05-02  ( 5.04 )  IT  full    FAULTY  zombies, failed, 
+120048  2012-05-02  ( 1.59 )  IT  full    GOOD    
+120049  2012-05-02  ( 8.00 )  IT  full    GOOD    
+120050  2012-05-02  ( 8.00 )  IT  full    GOOD    
+120051  2012-05-03  ( 8.00 )  IT  full    GOOD    
+120052  2012-05-03  ( 8.00 )  IT  full    GOOD    
+120053  2012-05-03  ( 8.00 )  IT  full    GOOD    
+120054  2012-05-04  ( 8.00 )  IT  full    GOOD    
+120055  2012-05-04  ( 8.00 )  IT  full    GOOD    
+120056  2012-05-04  ( 0.02 )  xx  full    FAULTY  short, failed, 
+120057  2012-05-04  ( 6.09 )  IT  full    FAULTY  failed, 
+120058  2012-05-05  ( 0.99 )  IT  full    FAULTY  zombies, failed, 
+120059  2012-05-05  ( 0.04 )  xx  full    FAULTY  short, low rate, failed, 
+120060  2012-05-05  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+120061  2012-05-05  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+120062  2012-05-05  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+120063  2012-05-05  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+120064  2012-05-05  ( 8.00 )  IT  full    GOOD    
+120065  2012-05-05  ( 0.11 )  xx  full    FAULTY  short, low rate, failed, 
+120066  2012-05-05  ( 0.11 )  xx  full    FAULTY  short, low rate, failed, 
+120067  2012-05-05  ( 0.12 )  xx  full    FAULTY  short, low rate, failed, 
+120068  2012-05-05  ( 0.04 )  xx  full    FAULTY  short, low rate, failed, 
+120069  2012-05-05  ( 0.01 )  xx  full    FAULTY  short, low rate, 
+120070  2012-05-05  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+120071  2012-05-05  ( 0.10 )  xx  full    FAULTY  short, low rate, failed, 
+120072  2012-05-05  ( 0.08 )  xx  full    FAULTY  short, low rate, failed, 
+120073  2012-05-05  ( 0.09 )  xx  full    FAULTY  short, low rate, failed, 
+120074  2012-05-05  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+120075  2012-05-05  ( 0.12 )  xx  full    FAULTY  short, low rate, failed, 
+120076  2012-05-05  ( 0.10 )  xx  full    FAULTY  short, zombies, low rate, failed, 
+120077  2012-05-05  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+120078  2012-05-05  ( 0.10 )  xx  full    FAULTY  short, zombies, low rate, failed, 
+120079  2012-05-05  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+120080  2012-05-05  ( 0.56 )  IT  partial FAULTY  low rate, configuration, 
+120081  2012-05-05  ( 0.26 )  Ix  partial FAULTY  low rate, configuration,
+120082  2012-05-05  ( 0.42 )  Ix  partial FAULTY  low rate, failed, 
+120083  2012-05-05  ( 1.78 )  IT  partial FAULTY  low rate, failed, 
+120084  2012-05-05  ( 0.49 )  Ix  partial FAULTY  zombies, low rate, failed, 
+120085  2012-05-05  ( 0.18 )  Ix  partial FAULTY  low rate, failed, 
+120086  2012-05-05  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+120087  2012-05-05  ( 0.74 )  IT  full    GOOD    
+120088  2012-05-05  ( 8.00 )  IT  full    GOOD    
+120089  2012-05-05  ( 8.00 )  IT  full    GOOD    
+120090  2012-05-06  ( 8.00 )  IT  full    GOOD    
+120091  2012-05-06  ( 8.00 )  IT  full    GOOD    
+120092  2012-05-07  ( 8.00 )  IT  full    GOOD    
+120093  2012-05-07  ( 8.00 )  IT  full    GOOD    
+120094  2012-05-07  ( 8.00 )  IT  full    GOOD    
+120095  2012-05-08  ( 8.00 )  IT  full    GOOD    
+120096  2012-05-08  ( 8.00 )  IT  full    GOOD    
+120097  2012-05-08  ( 8.00 )  IT  full    GOOD    
+120098  2012-05-09  ( 8.00 )  IT  full    GOOD    
+120099  2012-05-09  ( 7.01 )  IT  full    FAULTY  failed, 
+120100  2012-05-09  ( 0.04 )  xx  full    FAULTY  short, zombies, low rate, 
+120101  2012-05-09  ( 0.04 )  xx  full    FAULTY  short, zombies, low rate, 
+120102  2012-05-09  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+120103  2012-05-09  ( 0.03 )  xx  full    FAULTY  short, low rate, 
+120104  2012-05-09  ( 0.04 )  xx  full    FAULTY  short, zombies, low rate, 
+120105  2012-05-09  ( 0.04 )  xx  full    FAULTY  short, zombies, low rate, 
+120106  2012-05-09  ( 0.04 )  xx  full    FAULTY  short, zombies, low rate, 
+120107  2012-05-09  ( 0.02 )  xx  full    FAULTY  short, low rate, 
+120108  2012-05-09  ( 0.02 )  xx  partial FAULTY  short, run coordinator bad I3, 
+120109  2012-05-09  ( 0.03 )  xx  partial FAULTY  short, low rate, 
+120110  2012-05-09  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+120111  2012-05-09  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+120112  2012-05-09  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+120113  2012-05-09  ( 8.00 )  IT  full    GOOD    
+120114  2012-05-10  ( 8.00 )  IT  full    GOOD    
+120115  2012-05-10  ( 8.00 )  IT  full    GOOD    
+120116  2012-05-10  ( 8.00 )  IT  full    GOOD    
+120117  2012-05-11  ( 8.00 )  IT  full    GOOD    
+120118  2012-05-11  ( 8.00 )  IT  full    GOOD    
+120119  2012-05-11  ( 8.00 )  IT  full    GOOD    
+120120  2012-05-12  ( 8.00 )  IT  full    GOOD    
+120121  2012-05-12  ( 0.84 )  IT  full    GOOD    
+120122  2012-05-12  ( 8.00 )  IT  full    GOOD    
+120123  2012-05-12  ( 8.00 )  IT  full    GOOD    
+120124  2012-05-13  ( 0.02 )  xx  full    FAULTY  short, failed, 
+120125  2012-05-13  ( 5.36 )  IT  full    GOOD    
+120126  2012-05-13  ( 0.02 )  xx  full    FAULTY  short, failed, 
+120127  2012-05-13  ( 2.11 )  IT  full    GOOD    
+120128  2012-05-13  ( 1.71 )  IT  full    FAULTY  zombies, failed, 
+120129  2012-05-13  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+120130  2012-05-13  ( 7.50 )  IT  partial FAULTY  run coordinator bad I3, failed, 
+120131  2012-05-13  ( 8.00 )  IT  partial GOOD    
+120132  2012-05-14  ( 7.44 )  IT  partial GOOD    
+120133  2012-05-14  ( 0.02 )  xx  full    FAULTY  short, test, low rate, 
+120134  2012-05-14  ( 0.00 )  xx  full    FAULTY  short, test, low rate, 
+120135  2012-05-14  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+120137  2012-05-14  ( 0.00 )  xx  full    FAULTY  short, low rate, 
+120138  2012-05-14  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+120139  2012-05-14  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+120140  2012-05-14  ( 0.00 )  xx  partial FAULTY  short, low rate, 
+120141  2012-05-14  ( 0.01 )  xx  partial FAULTY  short, low rate, 
+120142  2012-05-14  ( 0.0 )   xx  partial FAULTY  short, low rate, 
+120143  2012-05-14  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+120145  2012-05-14  ( 0.0 )   xx  full    FAULTY  short, low rate, 
+120146  2012-05-14  ( 0.29 )  Ix  full    GOOD    
+120147  2012-05-14  ( 0.01 )  xx  full    FAULTY  short, test, low rate, 
+120148  2012-05-14  ( 0.01 )  xx  full    FAULTY  short, test, low rate, 
+120149  2012-05-14  ( 0.0 )   xx  full    FAULTY  short, test, low rate, 
+120150  2012-05-14  ( 0.22 )  Ix  full    GOOD    
+120151  2012-05-14  ( 0.30 )  Ix  full    FAULTY  test, 
+120152  2012-05-14  ( 8.00 )  IT  full    GOOD    
+120153  2012-05-14  ( 8.00 )  IT  full    GOOD    
+120154  2012-05-15  ( 4.04 )  IT  full    GOOD    
+120155  2012-05-15  ( 1.71 )  IT  full    GOOD    
+120156  2012-05-15  ( 6.74 )  IT  full    GOOD  IC86-II   
+120157  2012-05-15  ( 8.00 )  IT  full    GOOD  IC86-II 
