@@ -4,6 +4,10 @@ The kernel width was optimized using a 20-fold cross validation using the sklear
 Three scans with increasing resolution were used to narrow in on the optimum width.
 Each pickle file holds the result of the grid search with the scanned paramter space and the best result.
 
+    1. Coarse    : bandwidth [0.01, 3.00] in 0.5   steps. Best: 0.51
+    2. Finer     : bandwidth [0.01, 1.00] in 0.01  steps. Best: 0.11
+    3. Very Fine : bandwidth [0.10, 0.12] in 0.001 steps. Best: 0.114
+
 Data was transformed before optimizing the gaussian kernel width, because the KDE from sklearn uses a single bandwidth and a symmetric kernel.
 When having different scales in data, one kernel simply can't catch'em all.
 So we scale the data (by hand and eye at the moment) to have the features on an almost equal scale.
