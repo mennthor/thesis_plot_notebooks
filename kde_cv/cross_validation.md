@@ -10,20 +10,22 @@ So we scale the data (by hand and eye at the moment) to have the features on an 
 
 The transformation simply scales each values with the factors given below.
 
-    logE  : 1.5,
-    dec   : 2.5,
-    sigma : 2.0
+    logE  : 1.5
+    dec   : 2.5
+    sigma : 2.0  &  sigma (deg) <= 5°
 
 - logE is used in log10(E / GeV).
     + logE is good from the beginning. It falls of smoothly to zero on both ends. We simply scale the peak width to match the other features a bit.
-- declination is used in radian and normalspace
-    + This has better properties, because the edges are falling to zero, whcih suits the gaussian kernel much better than a sharp cut as in sin(dec) for example.
-- sigma is taken in degree, because otherwise the values are all well below 1 (>5°)
-    + It need a bit scaling because it drops quite hard to zero at the lower edge sigma=0.
+- declination is used in radian and normal space.
+    + This has better properties, because the edges are falling to zero, which suits the gaussian kernel much better than a sharp cut at the boundaries as in sin(dec) for example.
+- sigma is taken in degree to scale it to the other parameters naturally.
+    + It still needs a bit manual scaling because it drops quite hard to zero at the lower edge sigma=0 so we broaden this to better fit a gaussian kernel.
+    + Furthermore a cut on sigma is applied **before** fitting, only using events with sigma <= 5°.
+    + This prevents Kernel creation on badly reconstructed outlier events. The kernel properties smear in that region anyway but in a much smoother way.
 
-Furthermore a cut on sigma is applied, only using events with sigma <= 5°.
-This prevents Kernel creation on badly reconstructed outlier events.
-The kernel properties smear in that region anyway but in a much smoother way.
+All explicit settings used are:
 
+    kernel = "gaussian"
+    rtol   = 1e-8
 
-
+everything else left to default values.
