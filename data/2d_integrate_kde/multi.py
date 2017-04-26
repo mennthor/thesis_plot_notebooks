@@ -41,7 +41,7 @@ i1rng = np.array([-np.pi / 2., np.pi / 2.]) * fac_dec
 i2rng = np.array([0, 5]) * fac_sigma
 
 # Create the integration grid on the bin mids
-nbinsx = 200
+nbinsx = 1000
 xbins = np.linspace(2, 10, nbinsx + 1)
 x = 0.5 * (xbins[:-1] + xbins[1:])
 
