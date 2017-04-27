@@ -1,5 +1,5 @@
 """
-Maje a 'true' integration over 2 dims of the KDE to obtain a marginalized
+Make a 'true' integration over 2 dims of the KDE to obtain a marginalized
 1D distribtuion (here in logE).
 
 Use multiprocessing, because it takes time on a single processor.
