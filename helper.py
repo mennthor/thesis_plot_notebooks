@@ -5,22 +5,8 @@ More important functions are kept in the notebook.
 
 import numpy as np
 
-import matplotlib.pyplot as plt
-import matplotlib.dates as mpldates
-import matplotlib.gridspec as gridspec
-from matplotlib.colors import LogNorm
-
-import scipy.interpolate as sci
-import scipy.optimize as sco
-import scipy.stats as scs
-
 import json
-import datetime
-import pickle
 from astropy.time import Time as astrotime
-
-from corner_hist import corner_hist
-from anapymods3.plots.general import split_axis, get_binmids, hist_marginalize
 
 
 def load_data():
