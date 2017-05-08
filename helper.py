@@ -7,6 +7,8 @@ import numpy as np
 
 import json
 from astropy.time import Time as astrotime
+import matplotlib.pyplot as plt
+from matplotlib.colors import LogNorm, Normalize
 
 
 def load_data():
@@ -86,3 +88,32 @@ def get_good_runs(run_dict):
     _livetime = np.sum(runtimes_mjd)
 
     return inc_run_arr, _livetime
+
+
+def hist_comp(sam1, sam2, **kwargs):
+    figsize = kwargs.pop("figsize", (12, 6))
+    fig, (al, ar) = plt.subplots(1, 2, figsize=figsize)
+
+    normed = kwargs.pop("normed", True)
+    cmap = kwargs.pop("cmap", "inferno")
+    vmin, vmax = kwargs.pop("crnge", [None, None])
+    bins = kwargs.pop("bins", 50)
+    log = kwargs.pop("log", True)
+
+    histargs = dict(bins=bins,
+                    cmap=cmap,
+                    normed=normed,
+                    norm=LogNorm() if log else Normalize(),
+                    vmin=vmin,
+                    vmax=vmax,
+                   )
+
+    _, bx, by, img = al.hist2d(sam1[:, 0], sam1[:, 1], **histargs)
+    plt.colorbar(ax=al, mappable=img)
+
+    # Choose exact same binning here
+    histargs.pop("bins")
+    _, _, _, img = ar.hist2d(sam2[:, 0], sam2[:, 1], bins=[bx, by], **histargs)
+    plt.colorbar(ax=ar, mappable=img)
+
+    return fig, (al, ar)
