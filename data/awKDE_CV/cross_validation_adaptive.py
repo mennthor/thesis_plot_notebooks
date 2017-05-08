@@ -23,15 +23,15 @@ import pickle
 # regions anyway.
 exp = np.load("/Users/tmenne/git/misc/time/data/IC86_I_data.npy")
 
-# ndata = len(exp)
-# idx = np.random.choice(np.arange(ndata), replace=False, size=int(ndata / 10))
-# logE = exp["logE"][idx]
-# dec = exp["dec"][idx]
-# sigma = exp["sigma"][idx]
+# Test with less data
+idx = np.random.choice(np.arange(len(exp)), replace=False, size=5000)
+logE = exp["logE"][idx]
+dec = exp["dec"][idx]
+sigma = exp["sigma"][idx]
 
-logE = exp["logE"]
-dec = exp["dec"]
-sigma = exp["sigma"]
+# logE = exp["logE"]
+# dec = exp["dec"]
+# sigma = exp["sigma"]
 
 # Cut sigma (almost no stats after 20°, look at hist)
 sig_max_deg = 20
@@ -41,17 +41,18 @@ dec = dec[cut]
 sigma = sigma[cut]
 sample = np.vstack((logE, dec, sigma)).T
 
-# Make a 10-fold CV, with a 10 x 10 x 2 grid (= 2000 trials)
+# Make a 10-fold CV, with a 10 x 10 grid (= 1000 trials)
 cv = 10
+estimator = KDE.GaussianKDE(diag_cov=True)
 par_grid = {"glob_bw": np.linspace(0.01, 0.1, 10),
-            "alpha": np.linspace(0, 1, 10), "diag_cov": [True, False]}
+            "alpha": np.linspace(0, 1, 10)}
 
-estimator = KDE.GaussianKDE()
 selector = skms.GridSearchCV(estimator=estimator,
-                  param_grid=par_grid,
-                  n_jobs=40,
-                  cv=cv)
+                             param_grid=par_grid,
+                             n_jobs=40,
+                             cv=cv)
 
+selector.fit(sample)
 
 fname = "./awKDE_selector_{:d}_exp_IC86_I.pickle".format(cv)
 with open(fname, "wb") as f:
