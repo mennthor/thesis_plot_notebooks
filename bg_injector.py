@@ -1,10 +1,3 @@
-"""
-Class for random background event injection.
-
-Provides different models to sample events in a given timeframe and for a
-given event position from experimental data.
-"""
-
 import numpy as np
 from sklearn.utils import check_random_state
 
