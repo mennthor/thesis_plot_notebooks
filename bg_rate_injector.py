@@ -1,12 +1,4 @@
-"""
-Class for sampling the number of expected background events in a time frame.
-
-Background expectation is estimated from data resolved in time and declination.
-These are the two parameters, that are relevant for a given source.
-"""
-
 import numpy as np
-import sklearn.neighbors as skn
 from sklearn.utils import check_random_state
 
 
@@ -14,39 +6,45 @@ class BGRateInjector(object):
     """
     Background Rate Injector
 
-    Create a 2D smooth estimate of the data PDF in time and declination.
-    The smoothing removes any influence from over- or underfluctuations on data
-    to estimate the background rate robustly.
-
-    The rate PDF is created by fitting a `scipy.interpolate.RectBivariateSpline`
-    to a 2D histogram.
-    Outside the data range, the spline is set to zero, suitable for the hard cut
-    in time.
-
     Parameters
     ----------
-    bins : int or array-like
-        Binning of the 2D data histogram. Each bin is z-value for the splines.
-
     """
-
     def __init__(self):
-        print("Interface only. Defines functions: ", self._IMPLEMENTS)
         return
 
-    def fit(self, X):
+    def fit(self, X, bins, fit_seed):
         """
-        Build the injection model with the provided data
+        Build the injection model with the provided data.
+
+        Takes data and a binning derived from a runlist. Bins the data,
+        normalizes to a rate in HZ and fits a periodic function over the whole
+        time span to it. This function serves as a rate per time model.
+
+        The function is chosen to be a sinus with:
+
+        ..math:: f(t|a,b,c,d) = a \sin(b (t - c)) + d
+
+        where
+
+        - a is the Amplitude in Hz
+        - b is the period scale in 1/MJD
+        - c is the x-offset in MJD
+        - d the y-offset in Hz
 
         Parameters
         ----------
         X : array_like, shape (n_samples, n_features)
-            List of n_features-dimensional data points.  Each row
-            corresponds to a single data point.
+            List of n_features-dimensional data points. Each row corresponds to
+            a single data point, each column is a coordinate.
+        bins : array-like, shape (nbins, 2)
+            Time bins, where every row represents the start and end time in MJD
+            for a single run. This can be preselected from a goodrun list.
+        fit_seed : array-like, shape (4)
+            Seed values for the fit function as described above.
         """
         raise NotImplementedError("BGInjector is an interface.")
 
-    def sample(self, n_samples=1, range=None, random_state=None):
+    def sample(self, n_samples=1, random_state=None):
         """
         Generate random samples from the fitted model.
 
@@ -54,9 +52,6 @@ class BGRateInjector(object):
         ----------
         n_samples : int, optional
             Number of samples to generate. (defaults: 1)
-        range : array-like, shape (2, n_features)
-            Give a range [low, hig] in which events shall be sampled.
-            (default: None)
         random_state : RandomState, optional
             A random number generator instance. (default: None)
 
@@ -65,4 +60,35 @@ class BGRateInjector(object):
         X : array_like, shape (n_samples, n_features)
             Generated samples from the fitted model.
         """
+        rndgen = check_random_state(random_state)
         raise NotImplementedError("BGInjector is an interface.")
+        return
+
+
+class RunlistBGRateInjector():
+
+
+class TimebinBGRateInjector():
+
+
+class FunctionBGRateInjector():
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
