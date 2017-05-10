@@ -23,71 +23,65 @@ def load_data():
     return exp, mc, livetime
 
 
-def get_run_list():
+def create_goodrun_dict(runlist, filter_runs):
     """
-    Generate list of dict from iclive run list in json format.
-    Returns a list of dicts, where each item is a dict for a single run.
+    Create a dict of lists. Each entry in each list is one run.
+
+    Parameters
+    ----------
+    runlist : str
+        Path to a valid good run runlist snapshot from [1]_ in JSON format.
+        Must have keys 'latest_snapshot' and 'runs'.
+    filter_runs : function
+        Filter function to remove unwanted runs from the goodrun list.
+        Called as `filter_runs(run)`. Function must operate on a single
+        dictionary `run`, with keys:
+
+            ['good_i3', 'good_it', 'good_tstart', 'good_tstop', 'run',
+             'reason_i3', 'reason_it', 'source_tstart', 'source_tstop',
+             'snapshot', 'sha']
+
+    Returns
+    -------
+    goodrun_dict : dict
+        Dictionary with run attributes as keys. The values are stored in
+        lists in each key. One list item is one run.
+
+    Notes
+    -----
+    .. [1] https://live.icecube.wisc.edu/snapshots/
     """
-    # Grab from json
-    jsonFile = open('data/ic86-i-goodrunlist.json', 'r')
-    grlist = json.load(jsonFile)
-    jsonFile.close()
+    with open(runlist, 'r') as jsonFile:
+        goodruns = json.load(jsonFile)
+
+    if not all([k in goodruns.keys() for k in ["latest_snapshot", "runs"]]):
+        raise ValueError("Runlist misses 'latest_snapshot' or 'runs'")
 
     # This is a list of dicts (one dict per run)
-    runs = grlist["runs"]
+    goodrun_list = goodruns["runs"]
 
-    return runs
+    # Filter to remove unwanted runs
+    goodrun_list = list(filter(filter_runs, goodrun_list))
 
+    # Convert the run list of dicts to a dict of arrays for easier handling
+    goodrun_dict = dict(zip(goodrun_list[0].keys(),
+                            zip(*[r.values() for r in goodrun_list])))
+    for k in goodrun_dict.keys():
+        goodrun_dict[k] = np.array(goodrun_dict[k])
 
-def get_run_dict(runs):
-    """
-    Convert the run list of dicts to a dict of lists.
-    Returns a single dict, where each stat is the key to a list with the stats
-    for each run.
-    """
-    # This is a dict of arrays (all run values in an array per keyword)
-    run_dict = dict(zip(runs[0].keys(), zip(*[r.values() for r in runs])))
-    for k in run_dict.keys():
-        run_dict[k] = np.array(run_dict[k])
+    # Add times to MJD floats
+    goodrun_dict["good_start_mjd"] = astrotime(
+        goodrun_dict["good_tstart"]).mjd
+    goodrun_dict["good_stop_mjd"] = astrotime(
+        goodrun_dict["good_tstop"]).mjd
 
-    return run_dict
+    # Add runtimes in MJD days
+    goodrun_dict["runtime_days"] = (goodrun_dict["good_stop_mjd"] -
+                                    goodrun_dict["good_start_mjd"])
 
+    livetime = np.sum(goodrun_dict["runtime_days"])
 
-def get_good_runs(run_dict):
-    """
-    Filter the runs as stated on jfeintzeigs wiki page to get the used runs.
-    Returns the used run information in a recarray, the start_mjd, stop_mjd for
-    each run in MJD format and the total livetime from this runlist.
-    """
-    # Now compile runs as stated on jfeintzeigs page
-
-    # Transform livetimes to MJD floats
-    start_mjd = astrotime(run_dict["good_tstart"]).mjd
-    stop_mjd = astrotime(run_dict["good_tstop"]).mjd
-
-    # Create recarry to apply mask, only keep start, stop and runID
-    dtype = [("start_mjd", np.float), ("stop_mjd", np.float),
-             ("runID", np.int)]
-    run_arr = np.array(list(zip(start_mjd, stop_mjd, run_dict["run"])),
-                       dtype=dtype)
-
-    # Note: The last 2 runs aren't included anyway, so he left them out in
-    # the reported run list. This fits here, as the other 4 runs are found
-    # in the list.
-    exclude_rate = [120028, 120029, 120030, 120087, 120156, 120157]
-    i3good = (run_dict["good_i3"] == True)
-    itgood = (run_dict["good_it"] == True)
-    ratebad = np.in1d(run_dict["run"], exclude_rate)
-
-    # Include if it & i3 good and rate is good
-    include = i3good & itgood & ~ratebad
-    inc_run_arr = run_arr[include]
-
-    # Get the total and per run livetimes in mjd
-    runtimes_mjd = inc_run_arr["stop_mjd"] - inc_run_arr["start_mjd"]
-    _livetime = np.sum(runtimes_mjd)
-
-    return inc_run_arr, _livetime
+    return goodrun_dict, livetime
 
 
 def hist_comp(sam1, sam2, **kwargs):
