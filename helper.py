@@ -11,18 +11,6 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm, Normalize
 
 
-def load_data():
-    """
-    Load some local data/MC from IC86-I from epinat (pullcorrected)
-    Returns data, MC and livetime. Data, MC are in recarray format.
-    """
-    exp = np.load("data/IC86_I_data.npy")
-    mc = np.load("data/IC86_I_mc.npy")
-    # Use the officially stated livetime, not the ones from below
-    livetime = 332.61
-    return exp, mc, livetime
-
-
 def create_goodrun_dict(runlist, filter_runs):
     """
     Create a dict of lists. Each entry in each list is one run.
