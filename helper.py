@@ -166,7 +166,7 @@ def hist_comp(sam1, sam2, **kwargs):
                     norm=LogNorm() if log else Normalize(),
                     vmin=vmin,
                     vmax=vmax,
-                   )
+                    )
 
     _, bx, by, img = al.hist2d(sam1[:, 0], sam1[:, 1], **histargs)
     plt.colorbar(ax=al, mappable=img)
