@@ -11,10 +11,10 @@
 # request_disk = <disk_in_KB>
 
 # Run the environment script from icetray before anything else
-executable = /home/tmenne/software/parasitic/build/env-shell.sh
+# executable = /home/tmenne/software/parasitic/build/env-shell.sh
 
 # Path to write log, out, error files (here only one long file)
-initial_dir = /data/user/tmenne/tdepps_trials
+initial_dir = /data/user/tmenne/tdepps_trials/logs
 output     = $(initial_dir)/ic86I.out
 error      = $(initial_dir)/ic86I.err
 log        = $(initial_dir)/ic86I.log
