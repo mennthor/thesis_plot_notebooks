@@ -22,8 +22,8 @@ out_file = os.path.abspath("./results")
 
 # File job and arg string templates to be filled with args
 JOB = "JOB {} {}\n"
-VARS = ("VARS {} ntrials='{}' seed='{}' data='{}' " +
-        "mc='{}' runlist='{}' out='{}'\n")
+VARS = ("VARS {} ntrials=\"{}\" seed=\"{}\" data=\"{}\" " +
+        "mc=\"{}\" runlist=\"{}\" out=\"{}\"\n")
 
 # Write dagman job argument file
 with open(job_options_fpath, "w") as jobf:
