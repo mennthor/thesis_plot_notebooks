@@ -1,5 +1,10 @@
 .DS_Store
+
+# Python
 .ipynb_checkpoints
 __pycache__
 **.npy
 data/figs
+
+# dagman generated files
+**.dag
