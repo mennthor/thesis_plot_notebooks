@@ -1,0 +1,28 @@
+# Data output
+# Outdir = /data/user/tmenne/clusters/output
+
+# Choose queue: longer than 12 hours, testing, GPU
+# +AccountingGroup="long.tmenne"
+# +AccountingGroup="quicktest.tmenne"
+# +AccountingGroup="gpu.tmenne"
+
+# request_cpus = <num_cpus>
+# request_memory = <mem_in_MB>
+# request_disk = <disk_in_KB>
+
+# Run the environment script from icetray before anything else
+executable = /home/tmenne/software/parasitic/build/env-shell.sh
+
+# Path to write log, out, error files (here only one long file)
+initial_dir = /data/user/tmenne/tdepps_trials
+output     = $(initial_dir)/ic86I.out
+error      = $(initial_dir)/ic86I.err
+log        = $(initial_dir)/ic86I.log
+
+# Notifications
+notification = never
+getenv       = true
+universe     = vanilla
+
+Arguments = python /home/tmenne/analysis/tdepps_trials/job.py -n $(ntrials) -s $(seed) -d $(data) -m $(mc) -r $(runlist) -o $(out)
+queue
