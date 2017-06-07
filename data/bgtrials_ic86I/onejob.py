@@ -1,3 +1,5 @@
+#!/home/tmenne/software/miniconda3/bin/python
+
 """
 Usage:
   my_program.py -n <ntrials> -s <seed> -d <data> -m <mc> -r <runlist> -o <out>
@@ -12,7 +14,8 @@ Arguments:
 
 -h --help     show this help message
 """
-import docopt
+
+from docopt import docopt
 import os
 import pickle
 import numpy as np
