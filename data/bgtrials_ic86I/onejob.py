@@ -2,15 +2,15 @@
 
 """
 Usage:
-  my_program.py -n <ntrials> -s <seed> -d <data> -m <mc> -r <runlist> -o <out>
+  my_program.py -n <ntrials> -s <seed> -d <data> -m <mc> -r <runlist> -outfile <out>
 
 Arguments:
-  -n <ntrials>   number of trials to generate
-  -s <seed>      random seed for trial generation
-  -d <data>      npy file with data used to build the PDFs
-  -m <mc>        npy file with mc data used to build the PDFs
-  -r <runlist>   snapshot goodrunlist in json format
-  -o <out>       outfile for saved trials
+  -n <ntrials>     number of trials to generate
+  -s <seed>        random seed for trial generation
+  -d <data>        npy file with data used to build the PDFs
+  -m <mc>          npy file with mc data used to build the PDFs
+  -r <runlist>     snapshot goodrunlist in json format
+  -outfile <out>   outfile for saved trials
 
 -h --help     show this help message
 """
@@ -41,7 +41,7 @@ if __name__ == "__main__":
     runlist_file = os.path.abspath(args["-r"])
     out_file = os.path.abspath(args["-o"])
 
-    # Test arguments
+    # Test print arguments
     for key, val in args.items():
         print(key, val)
 
