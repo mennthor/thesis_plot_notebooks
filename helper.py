@@ -1,10 +1,11 @@
+# coding: utf-8
+
 """
 Some helper functions to keep the notebook clean.
 More important functions are kept in the notebook.
 """
 
 import numpy as np
-
 import json
 from astropy.time import Time as astrotime
 import matplotlib.pyplot as plt
@@ -129,7 +130,7 @@ def _create_runtime_bins(X, goodrun_dict, remove_zero_runs=False):
         start_mjd, stop_mjd = start_mjd[m], stop_mjd[m]
         print("Removing runs with zero events")
         print("  Number of runs with 0 events : {:d}".format(np.sum(~m)))
-        print("  Total livetime of those runs : {} d".format(_livetime))
+        print("  Total livetime of those runs : {} d".format(_livetime))
 
     # Normalize to rate in Hz
     runtime = stop_mjd - start_mjd
