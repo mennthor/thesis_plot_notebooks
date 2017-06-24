@@ -10,6 +10,7 @@ import json
 from astropy.time import Time as astrotime
 import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm, Normalize
+from anapymods3.healpy import rotator
 
 
 def create_goodrun_dict(runlist, filter_runs):
@@ -152,6 +153,11 @@ def _create_runtime_bins(X, goodrun_dict, remove_zero_runs=False):
 
 
 def hist_comp(sam1, sam2, **kwargs):
+    """
+    Takes 2 2d samples, sam1, sam2 and creates 2d histograms next to each other
+    in a single figure.
+    Return figure and both axis objects.
+    """
     figsize = kwargs.pop("figsize", (12, 6))
     fig, (al, ar) = plt.subplots(1, 2, figsize=figsize)
 
@@ -178,3 +184,51 @@ def hist_comp(sam1, sam2, **kwargs):
     plt.colorbar(ax=ar, mappable=img)
 
     return fig, (al, ar)
+
+
+def circle_on_skymap(ra0, dec0, r, ax, flat=False, **kwargs):
+    """
+    Draws correct circles in spherical coordinates by drawing a circle around
+    the pole and then rotation it to the desired center.
+    Has a bug when drawing on skymaps, then stray lines may appear when the
+    circle is split in right ascension.
+
+    ra0, dec0 : circle center in euqatorial coords in radians
+    r : circle radius in radians
+    ax : the axis to draw onto
+    flat : if true, do not convert to skymap coordinates (x, y). Can be used
+        when plotting ra, dec on a flat plot
+    kwargs are passed to plt.plot.
+    """
+    # Make correct circle points around the pole, rotate all back to real
+    # position of circle center: (ra_from, dec_from) -> (ra0, dec0)
+    npts = 100
+    ra_rot = np.linspace(0, 2 * np.pi, npts)
+    dec_rot = np.pi / 2. - np.ones(npts) * r
+
+    # Center of the circle at the pole
+    ra_from = np.zeros(npts, dtype=np.float)
+    dec_from = np.zeros(npts, dtype=np.float) + np.pi / 2.
+
+    ra0 = np.repeat(ra0, npts)
+    dec0 = np.repeat(dec0, npts)
+
+    ra, dec = rotator(ra_from, dec_from, ra0, dec0, ra_rot, dec_rot)
+
+    # Back to map coordinates
+    if not flat:
+        x, y = np.pi - ra, dec
+    else:
+        x, y = ra, dec
+
+    # Find circles which are over the 2pi periodic border in x [0, 2pi]
+    # Spit sample and draw seperately
+    m = np.abs(np.diff(x)) > np.deg2rad(90)
+    idx = np.argmax(m)
+
+    if np.sum(m) > 0:
+        ax.plot(x[:idx + 1], y[:idx + 1], **kwargs)
+        ax.plot(x[idx + 1:], y[idx + 1:], **kwargs)
+    else:
+        ax.plot(x, y, **kwargs)
+    return ax
