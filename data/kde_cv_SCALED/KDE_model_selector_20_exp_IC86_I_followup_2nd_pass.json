@@ -1,0 +1,11 @@
+{
+  "algorithm": "auto",
+  "atol": 0,
+  "bandwidth": 0.11400000000000002,
+  "breadth_first": true,
+  "kernel": "gaussian",
+  "leaf_size": 40,
+  "metric": "euclidean",
+  "metric_params": null,
+  "rtol": 1e-06
+}
