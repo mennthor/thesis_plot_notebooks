@@ -51,6 +51,9 @@ def create_goodrun_dict(runlist, filter_runs):
     goodrun_list = goodruns["runs"]
 
     # Filter to remove unwanted runs
+    if filter_runs is None:
+        def filter_runs(runs):
+            return True
     goodrun_list = list(filter(filter_runs, goodrun_list))
 
     # Convert the run list of dicts to a dict of arrays for easier handling
