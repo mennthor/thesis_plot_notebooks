@@ -192,7 +192,7 @@ def hist_comp(sam1, sam2, **kwargs):
 def circle_on_skymap(ra0, dec0, r, ax, flat=False, **kwargs):
     """
     Draws correct circles in spherical coordinates by drawing a circle around
-    the pole and then rotation it to the desired center.
+    the pole and then rotate it to the desired center.
     Has a bug when drawing on skymaps, then stray lines may appear when the
     circle is split in right ascension.
 
