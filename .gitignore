@@ -5,6 +5,7 @@
 **.npy
 data/figs
 data/GRB_IC86III
+data/GRB_IC86II
 
 
 # Created by https://www.gitignore.io/api/osx,python
