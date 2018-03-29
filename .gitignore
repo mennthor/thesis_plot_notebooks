@@ -4,6 +4,7 @@
 # Binaries / plots
 **.npy
 data/figs
+data/timedep_dec_pdf_figs
 data/GRB_IC86III
 data/GRB_IC86II
 data/GRB_IC86multi
