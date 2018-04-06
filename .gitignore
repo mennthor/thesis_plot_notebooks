@@ -5,6 +5,7 @@
 **.npy
 data/figs
 data/timedep_dec_pdf_figs
+data/spline_fits
 data/GRB_IC86III
 data/GRB_IC86II
 data/GRB_IC86multi
