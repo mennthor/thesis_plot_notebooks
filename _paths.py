@@ -11,6 +11,7 @@ Get all available paths with `print(PATHS)`.
 """
 
 import os as _os
+from git import Repo as _Repo
 
 
 class _Paths(object):
@@ -41,18 +42,20 @@ class _Paths(object):
 
 
 # Insert the current branch name to automatically switch to a new work dir
-_repo_path = _os.path.join("/Users", "tmenne", "git", "work",
-                           "hese_transient_stacking_analysis")
-_BRANCH_NAME = "master"
+_repo_path = _os.path.abspath("./")
+_repo_name = _os.path.basename(_repo_path)
+_repo = _Repo(_repo_path)
+_BRANCH_NAME = _repo.active_branch.name
+
 _data_path = _os.path.join("/Users", "tmenne", "Downloads",
-                            "hese_transient_stacking_data")
+                           "hese_transient_stacking_data")
 
 _paths = {
     "repo": _repo_path,
-    "local": _os.path.join(_data_path, "out_" + _BRANCH_NAME),
-    "data": _os.path.join(_data_path, "ana_data"),
+    "local": _os.path.join(_data_path, "out_master"),
+    "data": _os.path.join(_data_path, "rawout_master"),
     "skylab_data": _os.path.join(_data_path, "skylab_data"),
-    "jobs": _os.path.join(_repo_path, "jobfiles_" + _BRANCH_NAME),
+    "plots": _os.path.join(_repo_path, _BRANCH_NAME + "plots")
 }
 
 PATHS = _Paths(_paths)
