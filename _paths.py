@@ -59,3 +59,13 @@ _paths = {
 }
 
 PATHS = _Paths(_paths)
+
+# Make another object for the paths with the original HESE source files
+_paths_orig = {
+    "repo": _repo_path,
+    "local": _os.path.join(_data_path, "out_original_hese"),
+    "data": _os.path.join(_data_path, "rawout_original_hese"),
+    "skylab_data": _os.path.join(_data_path, "skylab_data"),
+    "plots": _os.path.join(_repo_path, _BRANCH_NAME + "plots")
+}
+PATHS_ORIG = _Paths(_paths_orig)
