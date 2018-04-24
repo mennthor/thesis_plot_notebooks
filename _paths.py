@@ -55,7 +55,7 @@ _paths = {
     "local": _os.path.join(_data_path, "out_master"),
     "data": _os.path.join(_data_path, "rawout_master"),
     "skylab_data": _os.path.join(_data_path, "skylab_data"),
-    "plots": _os.path.join(_repo_path, _BRANCH_NAME + "plots")
+    "plots": _os.path.join(_repo_path, "plots_" + _BRANCH_NAME, "pass2_hese")
 }
 
 PATHS = _Paths(_paths)
@@ -66,6 +66,6 @@ _paths_orig = {
     "local": _os.path.join(_data_path, "out_original_hese"),
     "data": _os.path.join(_data_path, "rawout_original_hese"),
     "skylab_data": _os.path.join(_data_path, "skylab_data"),
-    "plots": _os.path.join(_repo_path, _BRANCH_NAME + "plots")
+    "plots": _os.path.join(_repo_path, "plots_" + _BRANCH_NAME, "original_hese")
 }
 PATHS_ORIG = _Paths(_paths_orig)
