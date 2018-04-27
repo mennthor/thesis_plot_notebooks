@@ -16,6 +16,35 @@ from myi3scripts import arr2str as _arr2str
 import tdepps.utils.stats as _stats
 
 
+def _change_local_src_map_paths(local_dir):
+    """
+    Change local source map paths, so the source map loader works.
+
+    Parameters
+    ----------
+    local_dir : str
+        Path to ``_paths.PATHS.local``.
+    """
+    # Load source list
+    source_file = _os.path.join(local_dir, "source_list", "source_list.json")
+    with open(source_file) as _file:
+        srcs = _json.load(_file)
+
+    # Change map paths to local paths
+    for k, src_list in srcs.items():
+        print("Changing paths for {}".format(k))
+        for src_dict in src_list:
+            print("  Changing paths for {}".format(src_dict["run_id"]))
+            name = _os.path.basename(src_dict["map_path"])
+            src_dict["map_path"] = _os.path.join(
+                local_dir, "hese_scan_maps_truncated", name)
+    # Save
+    fpath = _os.path.join(local_dir, "source_list", "source_list_local.json")
+    with open(fpath, "w") as f:
+        _json.dump(srcs, fp=f, indent=2, separators=(",", ":"))
+        print("Saved back to:\n  {}".format(fpath))
+
+
 class loader(object):
     def __init__(self, paths):
         """
@@ -106,6 +135,63 @@ class loader(object):
 
         return pdfs
 
+    def perf_trials_loader(self, typ, idx=None):
+        """
+        Loads perfromance trial result files.
+
+        Parameters
+        ----------
+        typ : str
+            Folder name to load the different performance trials. Can be
+            ``'ps', 'healpy'`` for now.
+        idx : array-like or int or 'all' or ``None``, optional
+            Which time window to load the performance trials for. If ``'all'``,
+            all are loaded, if ``None`` a list of valid indices is returned.
+            (default: ``None``)
+
+        Returns
+        -------
+        pdfs : dict or list
+            Dict with indices as key(s) and the distribution object(s) as
+            value(s). If ``idx`` was ``None`` an array of valid indices is
+            returned.
+        """
+        typ2folder = {"ps": "performance_trials",
+                      "healpy": "performance_trials_healpy"}
+        if typ not in typ2folder.keys():
+            raise ValueError("`typ` can be: '{}'.".format(
+                _arr2str(typ2folder.keys(), sep="', '")))
+        folder = _os.path.join(self._paths.data, typ2folder[typ])
+        files = sorted(_glob(_os.path.join(folder, "*")))
+        file_names = map(_os.path.basename, files)
+
+        if (idx is None) or (idx == "all"):
+            regex = _re.compile(".*tw_([0-9]*)\.json\.gz")
+            all_idx = []
+            for fn in file_names:
+                res = _re.match(regex, fn)
+                all_idx.append(int(res.group(1)))
+            all_idx = _np.sort(all_idx)
+            if idx is None:
+                return all_idx
+        else:
+            all_idx = _np.atleast_1d(idx)
+
+        perfs = {}
+        for idx in all_idx:
+            file_id = file_names.index("tw_{:02d}.json.gz".format(idx))
+            fname = files[file_id]
+            print("Load bg performnace trials for time window " +
+                  "{:d} from:\n  {}".format(idx, fname))
+            with _gzip.open(fname) as json_file:
+                perfs[idx] = _json.load(json_file)
+                # Reconvert lists to arrays
+                for k, v in perfs[idx].items():
+                    if isinstance(v, list):
+                        perfs[idx][k] = _np.array(v)
+
+        return perfs
+
     def source_list_loader(self, names=None):
         """
         Load source lists.
@@ -125,7 +211,7 @@ class loader(object):
             ``names`` was ``'all'`` returns all available sourc lists in the dict.
         """
         source_file = _os.path.join(self._paths.local, "source_list",
-                                    "source_list.json")
+                                    "source_list_local.json")
         with open(source_file) as _file:
             sources = _json.load(_file)
         source_names = sorted(sources.keys())
@@ -141,6 +227,36 @@ class loader(object):
         print("Loaded source list from:\n  {}".format(source_file))
         print("  Returning sources for sample(s): {}".format(_arr2str(names)))
         return {name: sources[name] for name in names}
+
+    def source_map_loader(self, src_list):
+        """
+        Load the reco LLH map for a given source from the source list loader.
+
+        Parameters
+        ----------
+        src_list : list of dicts, shape (nsrcs)
+            List of source dicts, as provided by ``source_list_loader``. Each
+            dict must have key ``'map_path'``.
+
+        Returns
+        -------
+        healpy_maps : array-like, shape (nsrcs, npix)
+            Healpy map belonging to the given source for each source in the same
+            order as in ``src_list``.
+        nside : int
+            Healpy map resolution, same for all maps.
+        npix : int
+            Number of pixels in each healpy map, same for all maps.
+        """
+        healpy_maps = []
+        for src in src_list:
+            fpath = src["map_path"]
+            print("Loading map for source: {}".format(
+                _os.path.basename(fpath)))
+            with _gzip.open(fpath) as f:
+                src = _json.load(f)
+            healpy_maps.append(_np.array(src["map"]))
+        return _np.atleast_2d(healpy_maps)
 
     def runlist_loader(self, names=None):
         """
