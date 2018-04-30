@@ -46,11 +46,12 @@ def _change_local_src_map_paths(local_dir):
 
 
 class loader(object):
-    def __init__(self, paths):
+    def __init__(self, paths, verb=False):
         """
         Init with _paths.PATHS object to set the paths.
         """
         self._paths = paths
+        self._verb = verb
 
     def time_window_loader(self, idx=None):
         """
@@ -73,7 +74,8 @@ class loader(object):
         fname = _os.path.join(self._paths.local, "time_window_list",
                               "time_window_list.txt")
         dt0, dt1 = _np.loadtxt(fname, unpack=True, comments="#")
-        print("Loaded time window list from:\n  {}".format(fname))
+        if self._verb:
+            print("Loaded time window list from:\n  {}".format(fname))
         if idx is None:
             idx = _np.argsort(dt1 - dt0)
             return _np.arange(len(idx))[idx]
@@ -84,9 +86,11 @@ class loader(object):
             try:
                 len(idx)
                 idx = _np.atleast_1d(idx)
-                print(info + "indices: \n    [{}]".format(_arr2str(idx)))
+                if self._verb:
+                    print(info + "indices: \n    [{}]".format(_arr2str(idx)))
             except TypeError:
-                print(info + "index: {}".format(idx))
+                if self._verb:
+                    print(info + "index: {}".format(idx))
             return dt0[idx], dt1[idx]
 
     def bg_pdf_loader(self, idx=None):
@@ -128,7 +132,8 @@ class loader(object):
         for idx in all_idx:
             file_id = file_names.index("bg_pdf_tw_{:02d}.json.gz".format(idx))
             fname = files[file_id]
-            print("Load bg PDF for time window {:d} from:\n  {}".format(idx,
+            if self._verb:
+                print("Load bg PDF for time window {:d} from:\n  {}".format(idx,
                                                                         fname))
             with _gzip.open(fname) as json_file:
                 pdfs[idx] = (_stats.emp_with_exp_tail_dist.from_json(json_file))
@@ -156,7 +161,7 @@ class loader(object):
             value(s). If ``idx`` was ``None`` an array of valid indices is
             returned.
         """
-        typ2folder = {"ps": "performance_trials",
+        typ2folder = {"ps": "performance_trials_ps",
                       "healpy": "performance_trials_healpy"}
         if typ not in typ2folder.keys():
             raise ValueError("`typ` can be: '{}'.".format(
@@ -181,7 +186,8 @@ class loader(object):
         for idx in all_idx:
             file_id = file_names.index("tw_{:02d}.json.gz".format(idx))
             fname = files[file_id]
-            print("Load bg performnace trials for time window " +
+            if self._verb:
+                print("Load bg performnace trials for time window " +
                   "{:d} from:\n  {}".format(idx, fname))
             with _gzip.open(fname) as json_file:
                 perfs[idx] = _json.load(json_file)
@@ -224,8 +230,10 @@ class loader(object):
             elif not isinstance(names, list):
                 names = [names]
 
-        print("Loaded source list from:\n  {}".format(source_file))
-        print("  Returning sources for sample(s): {}".format(_arr2str(names)))
+        if self._verb:
+            print("Loaded source list from:\n  {}".format(source_file))
+        if self._verb:
+            print("  Returning sources for sample(s): {}".format(_arr2str(names)))
         return {name: sources[name] for name in names}
 
     def source_map_loader(self, src_list):
@@ -251,7 +259,8 @@ class loader(object):
         healpy_maps = []
         for src in src_list:
             fpath = src["map_path"]
-            print("Loading map for source: {}".format(
+            if self._verb:
+                print("Loading map for source: {}".format(
                 _os.path.basename(fpath)))
             with _gzip.open(fpath) as f:
                 src = _json.load(f)
@@ -369,7 +378,8 @@ class loader(object):
         folder : string
             Full path to folder from where to load the data.
         info : str
-            Info for print.
+            Info for if self._verb:
+            print.
 
         Returns
         -------
@@ -392,7 +402,8 @@ class loader(object):
         for name in names:
             idx = file_names.index(name)
             fname = files[idx]
-            print("Load {} for sample {} from:\n  {}".format(info, name, fname))
+            if self._verb:
+                print("Load {} for sample {} from:\n  {}".format(info, name, fname))
             ext = _os.path.splitext(fname)[1]
             if ext == ".npy":
                 data[name] = _np.load(fname)
