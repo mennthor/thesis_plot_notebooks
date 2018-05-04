@@ -3,6 +3,7 @@
 
 # Binaries / plots
 **.npy
+plot*
 data/figs
 data/timedep_dec_pdf_figs
 data/spline_fits
