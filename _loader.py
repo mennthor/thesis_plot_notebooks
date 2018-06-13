@@ -140,7 +140,7 @@ class loader(object):
 
         return pdfs
 
-    def perf_trials_loader(self, typ, idx=None):
+    def perf_trials_loader(self, typ, diff=False, idx=None):
         """
         Loads perfromance trial result files.
 
@@ -149,6 +149,9 @@ class loader(object):
         typ : str
             Folder name to load the different performance trials. Can be
             ``'ps', 'healpy'`` for now.
+        diff : bool, optional
+            If ``True`` load performance trials differential in energy.
+            (default: ``False``)
         idx : array-like or int or 'all' or ``None``, optional
             Which time window to load the performance trials for. If ``'all'``,
             all are loaded, if ``None`` a list of valid indices is returned.
@@ -161,8 +164,12 @@ class loader(object):
             value(s). If ``idx`` was ``None`` an array of valid indices is
             returned.
         """
-        typ2folder = {"ps": "performance_trials_ps",
-                      "healpy": "performance_trials_healpy"}
+        if diff:
+            typ2folder = {"ps": "differential_perf_trials_ps_combined",
+                          "healpy": "differential_perf_trials_healpy_combined"}
+        else:
+            typ2folder = {"ps": "performance_trials_ps",
+                          "healpy": "performance_trials_healpy"}
         if typ not in typ2folder.keys():
             raise ValueError("`typ` can be: '{}'.".format(
                 _arr2str(typ2folder.keys(), sep="', '")))
@@ -188,7 +195,7 @@ class loader(object):
             fname = files[file_id]
             if self._verb:
                 print("Load bg performnace trials for time window " +
-                  "{:d} from:\n  {}".format(idx, fname))
+                      "{:d} from:\n  {}".format(idx, fname))
             with _gzip.open(fname) as json_file:
                 perfs[idx] = _json.load(json_file)
                 # Reconvert lists to arrays
