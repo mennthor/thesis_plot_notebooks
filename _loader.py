@@ -93,10 +93,26 @@ class loader(object):
                     print(info + "index: {}".format(idx))
             return dt0[idx], dt1[idx]
 
+    def post_trial_pdf_loader(self):
+        """
+        Loads post trial p-value distribution object. p-values in ``-log10(p)``.
+
+        Returns
+        -------
+        pdf : ``tdepps.utils.stats.PureEmpiricalDist``instance
+            Post trial p-value PDF object with p-value distribution in
+            ``-log10(p)``.
+        """
+        inpath = _os.path.join(self._paths.local, "post_trials_pdf",
+                               "neg_log10_post_pdf.json.gz")
+        with _gzip.open(inpath) as fp:
+            pdf = _stats.PureEmpiricalDist.from_json(fp)
+        return pdf
+
     def bg_pdf_loader(self, idx=None):
         """
         Loads background trial test statisitc distribution objects of type
-        ``tdepps.utils.stats.emp_with_exp_tail_dist``.
+        ``tdepps.utils.stats.ExpTailEmpiricalDist``.
 
         Parameters
         ----------
@@ -133,10 +149,10 @@ class loader(object):
             file_id = file_names.index("bg_pdf_tw_{:02d}.json.gz".format(idx))
             fname = files[file_id]
             if self._verb:
-                print("Load bg PDF for time window {:d} from:\n  {}".format(idx,
-                                                                        fname))
+                print("Load bg PDF for time window {:d} from:\n  {}".format(
+                    idx, fname))
             with _gzip.open(fname) as json_file:
-                pdfs[idx] = (_stats.emp_with_exp_tail_dist.from_json(json_file))
+                pdfs[idx] = (_stats.ExpTailEmpiricalDist.from_json(json_file))
 
         return pdfs
 
