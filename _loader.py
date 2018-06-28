@@ -156,7 +156,7 @@ class loader(object):
 
         return pdfs
 
-    def perf_trials_loader(self, typ, diff=False, idx=None):
+    def perf_trials_loader(self, typ, idx=None, diff=False, skylab=False):
         """
         Loads perfromance trial result files.
 
@@ -165,13 +165,16 @@ class loader(object):
         typ : str
             Folder name to load the different performance trials. Can be
             ``'ps', 'healpy'`` for now.
-        diff : bool, optional
-            If ``True`` load performance trials differential in energy.
-            (default: ``False``)
         idx : array-like or int or 'all' or ``None``, optional
             Which time window to load the performance trials for. If ``'all'``,
             all are loaded, if ``None`` a list of valid indices is returned.
             (default: ``None``)
+        diff : bool, optional
+            If ``True`` load performance trials differential in energy.
+            (default: ``False``)
+        skylab : bool, optional
+            If ``True`` load trials ending in ``'skylab_MC'``.
+            (default: ``False``)
 
         Returns
         -------
@@ -189,7 +192,14 @@ class loader(object):
         if typ not in typ2folder.keys():
             raise ValueError("`typ` can be: '{}'.".format(
                 _arr2str(typ2folder.keys(), sep="', '")))
-        folder = _os.path.join(self._paths.data, typ2folder[typ])
+        folder_name = typ2folder[typ]
+        if skylab:
+            folder_name += "_skylab_MC"
+
+        if self._verb:
+            print("Folder name is: '{}'".format(folder_name))
+
+        folder = _os.path.join(self._paths.data, folder_name)
         files = sorted(_glob(_os.path.join(folder, "*")))
         file_names = map(_os.path.basename, files)
 
@@ -210,7 +220,7 @@ class loader(object):
             file_id = file_names.index("tw_{:02d}.json.gz".format(idx))
             fname = files[file_id]
             if self._verb:
-                print("Load bg performnace trials for time window " +
+                print("Load bg performance trials for time window " +
                       "{:d} from:\n  {}".format(idx, fname))
             with _gzip.open(fname) as json_file:
                 perfs[idx] = _json.load(json_file)
